@@ -84,6 +84,37 @@ export const Buttons = () => {
           Info
         </Button>
       </div>
+
+      <h3>Loading</h3>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 4,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Button loading>Default</Button>
+        <Button variant="primary" loading>
+          Primary
+        </Button>
+        <Button variant="secondary" loading>
+          Secondary
+        </Button>
+        <Button variant="success" loading>
+          Success
+        </Button>
+        <Button variant="warning" loading>
+          Warning
+        </Button>
+        <Button variant="danger" loading>
+          Danger
+        </Button>
+        <Button variant="info" loading>
+          Info
+        </Button>
+      </div>
     </div>
   );
 };

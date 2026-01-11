@@ -3,6 +3,7 @@ import styles from "./button.module.css";
 import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
 import { useJCUITheme } from "../jcui/provider";
+import { Loader } from "../Loader/loader";
 
 /**
  * Button component.
@@ -21,6 +22,7 @@ export default function Button({
   chamfer = true,
   size,
   disabled,
+  loading,
   ...props
 }) {
   return (
@@ -38,7 +40,17 @@ export default function Button({
       disabled={disabled}
       {...props}
     >
-      {children}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          gap: "0.5rem",
+        }}
+      >
+        <div>{children}</div>
+        {loading && <Loader />}
+      </div>
     </button>
   );
 }

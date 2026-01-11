@@ -49,8 +49,8 @@ const options = {
     // concentric grid rings
     Plot.geo([0.1, 0.2, 0.3, 0.4, 0.5], {
       geometry: (r) => d3.geoCircle().center([0, 90]).radius(r)(),
-      stroke: "black",
-      fill: "black",
+      stroke: "var(--border-accent-color)",
+      fill: "var(--body-color)",
       strokeOpacity: 0.3,
       fillOpacity: 0.03,
       strokeWidth: 0.5,
@@ -62,7 +62,7 @@ const options = {
       y1: 90 - AXIS_RADIUS,
       x2: 0,
       y2: 90,
-      stroke: "white",
+      stroke: "var(--body-color",
       strokeOpacity: 0.5,
       strokeWidth: 2,
     }),
@@ -75,7 +75,6 @@ const options = {
       text: (d) => `${Math.round(d * 100)}%`,
       textAnchor: "start",
       fill: "currentColor",
-      stroke: "white",
       fontSize: 8,
     }),
 
@@ -88,6 +87,7 @@ const options = {
       lineWidth: 6,
       fontSize: 11,
       fontWeight: 500,
+      color: "var(--body-color)",
     }),
 
     // radar areas
@@ -100,6 +100,7 @@ const options = {
       fill: "distinction",
       stroke: "distinction",
       curve: "cardinal-closed",
+      className: "radar-area",
     }),
 
     Plot.area(data, {
@@ -120,7 +121,7 @@ const options = {
       x: ({ key }) => longitude(key),
       y: ({ value }) => 90 - value,
       fill: "distinction",
-      stroke: "white",
+      stroke: "var(--body-bg)",
     }),
 
     // hover labels
@@ -133,7 +134,7 @@ const options = {
         dx: 4,
         textAnchor: "start",
         fill: "currentColor",
-        stroke: "white",
+        stroke: "var(--body-bg)",
         maxRadius: 10,
       })
     ),
@@ -141,15 +142,15 @@ const options = {
     // hover opacity
     () => svg`
       <style>
-        g[aria-label=area] path {
+        g[aria-label=area].radar-area path {
           fill-opacity: 0.12;
           transition: fill-opacity 0.2s;
         }
-        g[aria-label=area]:hover path:not(:hover) {
-          fill-opacity: 0.05;
-        }
-        g[aria-label=area] path:hover {
+        g[aria-label=area]:not(.radar-area):hover path:not(:hover) {
           fill-opacity: 0.35;
+        }
+        g[aria-label=area]:not(.radar-area) path:hover {
+          fill-opacity: 1;
         }
       </style>
     `,

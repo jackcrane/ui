@@ -28,7 +28,7 @@
   gap: 0.5rem;
   cursor: pointer;
   user-select: none;
-  color: var(--checkbox-label-color, inherit);
+  color: var(--checkbox-label-color, var(--body-color));
 }
 
 .wrapper.disabled {

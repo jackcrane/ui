@@ -1,0 +1,164 @@
+@property --radio-hover-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --radio-checked-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --radio-dot-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--radio-label-color, inherit);
+  user-select: none;
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.root {
+  --radio-hover-bg: var(--secondary-color-100);
+  --radio-checked-bg: var(--secondary-color-300);
+  --radio-dot-color: var(--body-color);
+  --radio-label-color: var(--body-color);
+
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: var(--border-thickness) solid var(--border-color);
+  background-color: var(--radio-bg, transparent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.root:hover {
+  background-color: var(--radio-hover-bg);
+}
+
+.root:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--border-accent-color);
+}
+
+.root[data-state="checked"] {
+  background-color: var(--radio-checked-bg);
+  border-color: var(--radio-checked-bg);
+}
+
+.indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dot {
+  width: 60%;
+  height: 60%;
+  border-radius: 999px;
+  background-color: var(--radio-dot-color, var(--body-color));
+}
+
+.large {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.small {
+  width: 1rem;
+  height: 1rem;
+}
+
+.disabledDot {
+  opacity: 0.5;
+}
+
+.label {
+  color: var(--radio-label-color, inherit);
+  font-size: 1rem;
+}
+
+.root.chamfer::before {
+  border-radius: inherit;
+}
+
+/* Variants */
+.primary {
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+  --radio-hover-bg: var(--primary-color-100);
+  --radio-checked-bg: var(--primary-color-300);
+  --radio-dot-color: var(--primary-color-500);
+  --radio-label-color: var(--primary-color-800);
+}
+
+.secondary {
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+  --radio-hover-bg: var(--secondary-color-100);
+  --radio-checked-bg: var(--secondary-color-300);
+  --radio-dot-color: var(--secondary-color-500);
+  --radio-label-color: var(--secondary-color-800);
+}
+
+.success {
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+  --radio-hover-bg: var(--success-color-100);
+  --radio-checked-bg: var(--success-color-300);
+  --radio-dot-color: var(--success-color-500);
+  --radio-label-color: var(--success-color-800);
+}
+
+.warning {
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+  --radio-hover-bg: var(--warning-color-100);
+  --radio-checked-bg: var(--warning-color-300);
+  --radio-dot-color: var(--warning-color-500);
+  --radio-label-color: var(--warning-color-800);
+}
+
+.danger {
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+  --radio-hover-bg: var(--danger-color-100);
+  --radio-checked-bg: var(--danger-color-300);
+  --radio-dot-color: var(--danger-color-500);
+  --radio-label-color: var(--danger-color-800);
+}
+
+.info {
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+  --radio-hover-bg: var(--info-color-100);
+  --radio-checked-bg: var(--info-color-300);
+  --radio-dot-color: var(--info-color-500);
+  --radio-label-color: var(--info-color-800);
+}

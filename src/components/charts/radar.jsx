@@ -79,7 +79,7 @@ const options = {
       fontSize: 8,
     }),
 
-    // axis labels (THIS WORKS)
+    // axis labels
     Plot.text(keys, {
       x: (d) => longitude(d),
       y: 90 - AXIS_RADIUS,
@@ -99,6 +99,19 @@ const options = {
       z: "distinction",
       fill: "distinction",
       stroke: "distinction",
+      curve: "cardinal-closed",
+    }),
+
+    Plot.area(data, {
+      x1: ({ key }) => longitude(key),
+      y1: ({ value }) => 90 - value,
+      x2: 0,
+      y2: 90,
+      z: "distinction",
+
+      fill: (d) => `url(#hatch-${d.distinction})`,
+      stroke: "distinction",
+
       curve: "cardinal-closed",
     }),
 
@@ -142,5 +155,32 @@ const options = {
     `,
   ],
 };
+
+const hatchDefs = () => svg`
+  <defs>
+    ${options.color.domain.map(
+      (d) => svg`
+        <pattern
+          id="hatch-${d}"
+          patternUnits="userSpaceOnUse"
+          width="6"
+          height="6"
+          patternTransform="rotate(-45)"
+        >
+          <line
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="6"
+            stroke="${options.color.range[options.color.domain.indexOf(d)]}"
+            stroke-width="1"
+          />
+        </pattern>
+      `
+    )}
+  </defs>
+`;
+
+options.marks.unshift(hatchDefs);
 
 export const RadarChart = () => <ObservablePlot options={options} />;

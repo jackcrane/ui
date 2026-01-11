@@ -1,0 +1,169 @@
+@property --checkbox-hover-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --checkbox-checked-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --checkbox-check-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+}
+
+@property --checkbox-label-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+}
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: var(--checkbox-label-color, inherit);
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.root {
+  --checkbox-hover-bg: var(--secondary-color-100);
+  --checkbox-checked-bg: var(--secondary-color-300);
+  --checkbox-check-color: var(--body-color);
+  --checkbox-label-color: inherit;
+  --button-bg: var(--checkbox-bg, transparent);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: var(--border-thickness) solid var(--border-color);
+  background-color: var(--checkbox-bg, transparent);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+  color: var(--checkbox-check-color, var(--body-bg));
+}
+
+.root:hover {
+  background-color: var(--checkbox-hover-bg);
+  --button-bg: var(--checkbox-hover-bg);
+}
+
+.root:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--border-accent-color);
+}
+
+.root[data-state="checked"] {
+  background-color: var(--checkbox-checked-bg);
+  border-color: var(--checkbox-checked-bg);
+  --button-bg: var(--checkbox-checked-bg);
+}
+
+.indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  pointer-events: none;
+}
+
+.indicator svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.large {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.small {
+  width: 1rem;
+  height: 1rem;
+}
+
+.disabledBox {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.label {
+  font-size: 1rem;
+  color: inherit;
+  pointer-events: none;
+}
+
+/* Variants */
+
+.primary {
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+  --checkbox-hover-bg: var(--primary-color-100);
+  --checkbox-checked-bg: var(--primary-color-300);
+  --checkbox-check-color: var(--primary-color-500);
+  --checkbox-label-color: var(--primary-color-800);
+}
+
+.secondary {
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+  --checkbox-hover-bg: var(--secondary-color-100);
+  --checkbox-checked-bg: var(--secondary-color-300);
+  --checkbox-check-color: var(--secondary-color-500);
+  --checkbox-label-color: var(--secondary-color-800);
+}
+
+.success {
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+  --checkbox-hover-bg: var(--success-color-100);
+  --checkbox-checked-bg: var(--success-color-300);
+  --checkbox-check-color: var(--success-color-500);
+  --checkbox-label-color: var(--success-color-800);
+}
+
+.warning {
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+  --checkbox-hover-bg: var(--warning-color-100);
+  --checkbox-checked-bg: var(--warning-color-300);
+  --checkbox-check-color: var(--warning-color-500);
+  --checkbox-label-color: var(--warning-color-800);
+}
+
+.danger {
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+  --checkbox-hover-bg: var(--danger-color-100);
+  --checkbox-checked-bg: var(--danger-color-300);
+  --checkbox-check-color: var(--danger-color-500);
+  --checkbox-label-color: var(--danger-color-800);
+}
+
+.info {
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+  --checkbox-hover-bg: var(--info-color-100);
+  --checkbox-checked-bg: var(--info-color-300);
+  --checkbox-check-color: var(--info-color-500);
+  --checkbox-label-color: var(--info-color-800);
+}

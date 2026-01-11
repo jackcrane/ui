@@ -1,5 +1,6 @@
 import { Buttons } from "./buttons";
 import { Inputs } from "./inputs";
+import { Checkboxes } from "./checkboxes";
 import { Selects } from "./selects";
 import { Modals } from "./modals";
 import { Charts } from "./charts";
@@ -12,6 +13,8 @@ export const Blocks = () => {
       <Buttons />
       <hr />
       <Inputs />
+      <hr />
+      <Checkboxes />
       <hr />
       <Selects />
       <hr />

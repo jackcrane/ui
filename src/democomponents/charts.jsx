@@ -1,4 +1,5 @@
 import { BarChart } from "../components/charts/bar";
+import { LineChart } from "../components/charts/line";
 import { RadarChart } from "../components/charts/radar";
 
 export const Charts = () => {
@@ -7,6 +8,7 @@ export const Charts = () => {
       <h2>Charts</h2>
       <RadarChart />
       <BarChart />
+      <LineChart />
     </div>
   );
 };

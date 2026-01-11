@@ -12,11 +12,9 @@ function App() {
         style={{
           display: "flex",
           flexDirection: "row",
+          marginBottom: 300,
         }}
       >
-        <JCUIProvider theme="light" style={{ flex: 1, padding: 10 }}>
-          <Blocks />
-        </JCUIProvider>
         <JCUIProvider theme="dark" style={{ flex: 1, padding: 10 }}>
           <Blocks />
         </JCUIProvider>

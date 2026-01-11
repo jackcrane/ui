@@ -1,5 +1,6 @@
 import { Buttons } from "./buttons";
 import { Inputs } from "./inputs";
+import { Selects } from "./selects";
 
 export const Blocks = () => {
   return (
@@ -9,6 +10,8 @@ export const Blocks = () => {
       <Buttons />
       <hr />
       <Inputs />
+      <hr />
+      <Selects />
     </div>
   );
 };

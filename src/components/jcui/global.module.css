@@ -12,6 +12,13 @@
   font-family: "Inter", sans-serif;
 }
 
+*:focus {
+  outline: none !important;
+}
+*:focus-visible {
+  outline: none !important;
+}
+
 .global {
   --primary-color-100: color-mix(
     in srgb,

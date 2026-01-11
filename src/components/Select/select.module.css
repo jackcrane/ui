@@ -1,0 +1,138 @@
+@property --select-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+
+  background-color: var(--select-bg);
+  color: var(--button-color, inherit);
+
+  border: var(--border-thickness) solid var(--border-color);
+  cursor: pointer;
+}
+
+.trigger:hover {
+  --select-bg: var(--secondary-color-100);
+}
+
+.trigger:active {
+  --select-bg: var(--secondary-color-200);
+}
+
+.large {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  opacity: 0.7;
+}
+
+/* Dropdown */
+
+.content {
+  background-color: var(--body-bg);
+  border: var(--border-thickness) solid var(--border-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.item {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.item[data-highlighted] {
+  background-color: var(--secondary-color-100);
+}
+
+.item[data-state="checked"] {
+  background-color: var(--secondary-color-200);
+}
+
+.item[data-disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Variants (match Button) */
+
+.primary {
+  --select-bg: var(--primary-color-100);
+  --border-color: var(--primary-color-300);
+  --button-color: var(--primary-color-800);
+  --border-accent-color: var(--primary-color-600);
+}
+.primary:hover {
+  --select-bg: var(--primary-color-200);
+}
+
+.success {
+  --select-bg: var(--success-color-100);
+  --border-color: var(--success-color-300);
+  --button-color: var(--success-color-800);
+  --border-accent-color: var(--success-color-600);
+}
+.success:hover {
+  --select-bg: var(--success-color-200);
+}
+
+.warning {
+  --select-bg: var(--warning-color-100);
+  --border-color: var(--warning-color-300);
+  --button-color: var(--warning-color-800);
+  --border-accent-color: var(--warning-color-600);
+}
+.warning:hover {
+  --select-bg: var(--warning-color-200);
+}
+
+.danger {
+  --select-bg: var(--danger-color-100);
+  --border-color: var(--danger-color-300);
+  --button-color: var(--danger-color-800);
+  --border-accent-color: var(--danger-color-600);
+}
+.danger:hover {
+  --select-bg: var(--danger-color-200);
+}
+
+.info {
+  --select-bg: var(--info-color-100);
+  --border-color: var(--info-color-300);
+  --button-color: var(--info-color-800);
+  --border-accent-color: var(--info-color-600);
+}
+.info:hover {
+  --select-bg: var(--info-color-200);
+}
+
+.secondary {
+  --select-bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --button-color: var(--secondary-color-800);
+  --border-accent-color: var(--secondary-color-600);
+}
+.secondary:hover {
+  --select-bg: var(--secondary-color-200);
+}

@@ -9,6 +9,7 @@ export const JCUIProvider = ({ children, theme, className, ...props }) => {
       className={classnames(
         theme === "dark" ? dark.dark : light.light,
         global.global,
+        "jcui-provider",
         className
       )}
       {...props}

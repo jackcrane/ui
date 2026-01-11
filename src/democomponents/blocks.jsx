@@ -5,6 +5,7 @@ import { Radios } from "./radios";
 import { Selects } from "./selects";
 import { Modals } from "./modals";
 import { Charts } from "./charts";
+import { Cards } from "./cards";
 
 export const Blocks = () => {
   return (
@@ -24,6 +25,8 @@ export const Blocks = () => {
       <Modals />
       <hr />
       <Charts />
+      <hr />
+      <Cards />
     </div>
   );
 };

@@ -42,7 +42,7 @@ const options = {
   },
   color: {
     domain: ["individual", "average"],
-    range: ["#4e79a7", "#e15759"],
+    range: ["var(--primary-color)", "var(--danger-color)"],
     legend: true,
   },
   marks: [
@@ -166,7 +166,7 @@ const hatchDefs = () => svg`
           patternUnits="userSpaceOnUse"
           width="6"
           height="6"
-          patternTransform="rotate(-45)"
+          patternTransform="rotate(45)"
         >
           <line
             x1="0"

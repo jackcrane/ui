@@ -2,6 +2,7 @@ import clsx from "clsx";
 import styles from "./button.module.css";
 import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
+import { useJCUITheme } from "../jcui/provider";
 
 /**
  * Button component.
@@ -41,3 +42,25 @@ export default function Button({
     </button>
   );
 }
+
+export const ColorSwitcher = () => {
+  const { theme, setTheme } = useJCUITheme();
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 10,
+        right: 10,
+        zIndex: 100,
+      }}
+    >
+      <Button
+        onClick={() => {
+          setTheme(theme === "light" ? "dark" : "light");
+        }}
+      >
+        {theme === "light" ? "Dark" : "Light"} mode
+      </Button>
+    </div>
+  );
+};

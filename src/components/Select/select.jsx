@@ -2,6 +2,9 @@ import { Select } from "radix-ui";
 import clsx from "clsx";
 import styles from "./select.module.css";
 import chamferStyles from "../../general/chamfer.module.css";
+import hatchStyles from "../../general/hatch.module.css";
+import classNames from "classnames";
+import { Loader } from "../Loader/loader";
 
 /**
  * Select component.
@@ -18,16 +21,17 @@ export default function SelectInput({
   options,
   value,
   onValueChange,
-  variant = "secondary",
+  variant,
   size,
   disabled,
   chamfer = true,
+  loading = false,
 }) {
   return (
     <Select.Root
       value={value}
       onValueChange={onValueChange}
-      disabled={disabled}
+      disabled={disabled || loading}
     >
       <Select.Trigger
         className={clsx(
@@ -36,17 +40,27 @@ export default function SelectInput({
           chamfer && chamferStyles.chamfer,
           size === "large" && styles.large,
           size === "small" && styles.small,
-          disabled && styles.disabled
+          disabled && styles.disabled,
+          disabled && hatchStyles.hatch
+          // loading && styles.disabled
         )}
       >
         <Select.Value />
-        <Select.Icon className={styles.icon}>▾</Select.Icon>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Select.Icon className={styles.icon}>▾</Select.Icon>
+        )}
       </Select.Trigger>
 
-      <Select.Portal
-        container={document.getElementsByClassName("jcui-provider")[0]}
-      >
-        <Select.Content className={styles.content} sideOffset={6}>
+      <Select.Portal>
+        <Select.Content
+          className={classNames(
+            styles.content,
+            chamfer && chamferStyles.chamfer
+          )}
+          sideOffset={6}
+        >
           <Select.Viewport>
             {options.map((opt) => (
               <Select.Item

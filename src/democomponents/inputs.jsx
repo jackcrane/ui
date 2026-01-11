@@ -68,6 +68,50 @@ export const Inputs = () => {
         <Input type="text" placeholder="Danger" variant="danger" />
         <Input type="text" placeholder="Info" variant="info" />
       </div>
+
+      <h3>No Chamfer</h3>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 4,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Input type="text" placeholder="Default" chamfer={false} />
+        <Input
+          type="text"
+          placeholder="Primary"
+          variant="primary"
+          chamfer={false}
+        />
+        <Input
+          type="text"
+          placeholder="Secondary"
+          variant="secondary"
+          chamfer={false}
+        />
+        <Input
+          type="text"
+          placeholder="Success"
+          variant="success"
+          chamfer={false}
+        />
+        <Input
+          type="text"
+          placeholder="Warning"
+          variant="warning"
+          chamfer={false}
+        />
+        <Input
+          type="text"
+          placeholder="Danger"
+          variant="danger"
+          chamfer={false}
+        />
+        <Input type="text" placeholder="Info" variant="info" chamfer={false} />
+      </div>
     </div>
   );
 };

@@ -52,7 +52,6 @@
 .content {
   background-color: var(--body-bg);
   border: var(--border-thickness) solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .item {

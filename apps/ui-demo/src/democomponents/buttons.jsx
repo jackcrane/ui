@@ -1,4 +1,4 @@
-import Button from "../components/Button/button";
+import { Button } from "@jcui/ui-kit";
 
 export const Buttons = () => {
   return (

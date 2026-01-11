@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Select from "../components/Select/select";
+import { Select } from "@jcui/ui-kit";
 
 const OPTIONS = [
   { value: "1", label: "Item 1" },

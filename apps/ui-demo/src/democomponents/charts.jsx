@@ -1,6 +1,4 @@
-import { BarChart } from "../components/charts/bar";
-import { LineChart } from "../components/charts/line";
-import { RadarChart } from "../components/charts/radar";
+import { BarChart, LineChart, RadarChart } from "@jcui/ui-kit";
 
 const percentFormat = (value) => `${Math.round(value * 100)}%`;
 

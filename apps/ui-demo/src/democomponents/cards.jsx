@@ -1,4 +1,4 @@
-import Card from "../components/Card/card";
+import { Card } from "@jcui/ui-kit";
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 

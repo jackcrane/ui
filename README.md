@@ -1,23 +1,21 @@
-# Radix + CSS Modules UI Kit
+# JC/UI Kit
 
-This scaffold pairs [Radix UI primitives](https://www.radix-ui.com/) with CSS Modules so you can build accessible components with encapsulated styles.
-
-## Getting started
-1. Install dependencies: `npm install`
-2. Run the dev server: `npm run dev`
-3. Explore the components in `src/components`
+A workspace that splits the reusable React components into a publishable UI kit and a dedicated demo shell that exercises the kit blocks.
 
 ## Structure
-- `src/App.jsx` renders the kit demo and shows how to compose several primitive-based components.
-- `src/components/Button/PrimaryButton.jsx` demonstrates a themeable button with CSS modules and `clsx`.
-- `src/components/Card/Card.jsx` provides a lightweight card wrapper to group controls.
-- `src/components/InteractiveTabs/InteractiveTabs.jsx` uses `@radix-ui/react-tabs` with module-scoped styles.
-- `src/components/Dialog/InfoDialog.jsx` shows how to layer dialogs using `@radix-ui/react-dialog`.
-- `src/components/ToggleGroup/StatusToggle.jsx` showcases a segmented toggle backed by `@radix-ui/react-toggle-group`.
+- `packages/ui-kit` – the React component library configured for tree-shaken Vite builds, TypeScript declarations, and automatic dependency inference so it can publish clean artifacts to npm.
+- `apps/ui-demo` – a lightweight Vite + React playground that consumes `@jcui/ui-kit` via the workspace link and renders the shared Blocks demos.
 
-## Scripts
-- `npm run dev`: start the Vite dev server
-- `npm run build`: produce an optimized production bundle
-- `npm run preview`: preview the production build locally
+## Getting started
+1. `npm install`
+2. `npm run dev:demo` – hot-reloads the demo at `http://localhost:5173`
+3. `npm run build:kit` – produces `packages/ui-kit/dist` for publishing (`exports`, `module`, `main`, and `types`)
+4. `npm run build:demo` – bundles the demo app for deployment
+5. `npm run lint` – runs the shared ESLint config across both packages
 
-Feel free to fork the components or plug them into your design system; Radix handles the accessibility, and CSS modules keep the styling predictable.
+## Publishing the UI kit
+1. `npm run build:kit`
+2. `cd packages/ui-kit`
+3. `npm publish` (or whatever registry/publish script you use)
+
+The kit already embeds TypeScript declaration files (`dist/index.d.ts`), sets `sideEffects: false`, and only ships the files under `dist` so tree-shaking and IDE autocompletion stay sharp for consumers.

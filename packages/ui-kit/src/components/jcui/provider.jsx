@@ -1,17 +1,9 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dark from "./dark.module.css";
 import light from "./light.module.css";
 import global from "./global.module.css";
 import classnames from "classnames";
-
-const DEFAULT_THEME = "light";
-
-const ThemeContext = createContext({
-  theme: DEFAULT_THEME,
-  setTheme: () => {},
-});
-
-export const useJCUITheme = () => useContext(ThemeContext);
+import { DEFAULT_THEME, ThemeContext } from "./theme-context";
 
 export const JCUIProvider = ({
   children,

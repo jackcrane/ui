@@ -1,7 +1,6 @@
 import React from "react";
-import Button, { ColorSwitcher } from "./components/Button/button";
-import { JCUIProvider } from "./components/jcui/provider";
 import { Blocks } from "./democomponents/blocks";
+import { ColorSwitcher, JCUIProvider } from "@jcui/ui-kit";
 
 function App() {
   return (

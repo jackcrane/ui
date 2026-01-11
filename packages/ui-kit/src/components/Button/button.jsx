@@ -2,7 +2,7 @@ import clsx from "clsx";
 import styles from "./button.module.css";
 import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
-import { useJCUITheme } from "../jcui/provider";
+import { useJCUITheme } from "../jcui/theme-context";
 import { Loader } from "../Loader/loader";
 
 /**

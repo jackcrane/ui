@@ -1,0 +1,89 @@
+@property --input-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+.input {
+  border-width: var(--border-thickness);
+  border-style: solid;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--input-bg, transparent);
+  color: var(--input-color, inherit);
+  border-color: var(--border-color);
+}
+.input:hover {
+  --input-bg: var(--secondary-color-100);
+}
+.input:focus {
+  outline: none;
+}
+
+.large {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+
+.primary {
+  --input-bg: var(--primary-color-100);
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+}
+.primary:hover {
+  --input-bg: var(--primary-color-200);
+}
+
+.success {
+  --input-bg: var(--success-color-100);
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+}
+.success:hover {
+  --input-bg: var(--success-color-200);
+}
+.warning {
+  --input-bg: var(--warning-color-100);
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+}
+.warning:hover {
+  --input-bg: var(--warning-color-200);
+}
+.danger {
+  --input-bg: var(--danger-color-100);
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+}
+.danger:hover {
+  --input-bg: var(--danger-color-200);
+}
+.info {
+  --input-bg: var(--info-color-100);
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+}
+.info:hover {
+  --input-bg: var(--info-color-200);
+}
+
+.secondary {
+  --input-bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+}
+.secondary:hover {
+  --input-bg: var(--secondary-color-200);
+}

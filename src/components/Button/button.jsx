@@ -20,6 +20,7 @@ export default function Button({
   chamfer = true,
   size,
   disabled,
+  ...props
 }) {
   return (
     <button
@@ -30,10 +31,11 @@ export default function Button({
         size === "large" && styles.large,
         size === "small" && styles.small,
         disabled && chamferStyles.disabled,
-        disabled && styles.disabled,
-        disabled && hatchStyles.hatch
+        disabled && hatchStyles.hatch,
+        disabled && styles.disabled
       )}
       disabled={disabled}
+      {...props}
     >
       {children}
     </button>

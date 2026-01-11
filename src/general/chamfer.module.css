@@ -22,11 +22,13 @@
   --cd: calc(var(--chamfer-distance) * 1.5);
 }
 
-.chamfer:active {
+.chamfer:active,
+div.chamfer:focus-within {
   --cd: calc(var(--chamfer-distance) * 1.75);
 }
 
-.chamfer:not(.disabled):active {
+.chamfer:not(.disabled):active,
+div.chamfer:not(.disabled):focus-within {
   --cd: calc(var(--chamfer-distance) * 1.75);
 }
 

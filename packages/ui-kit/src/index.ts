@@ -9,3 +9,4 @@ export { default as Select } from "./components/Select/select";
 export { useModal } from "./components/modal/useModal";
 export { JCUIProvider } from "./components/jcui/provider";
 export { useJCUITheme } from "./components/jcui/theme-context";
+export { Layout } from "./components/Layout/layout";

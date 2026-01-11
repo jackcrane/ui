@@ -6,6 +6,7 @@ import { Selects } from "./selects";
 import { Modals } from "./modals";
 import { Charts } from "./charts";
 import { Cards } from "./cards";
+import { Layouts } from "./layouts";
 
 export const Blocks = () => {
   return (
@@ -27,6 +28,8 @@ export const Blocks = () => {
       <Charts />
       <hr />
       <Cards />
+      <hr />
+      <Layouts />
     </div>
   );
 };

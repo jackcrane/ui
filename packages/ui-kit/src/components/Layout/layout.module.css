@@ -1,0 +1,31 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidenav {
+  width: 250px;
+  border-right: var(--border-thickness) solid var(--border-color);
+  background-color: var(--body-secondary);
+  padding: 10px;
+}
+
+.logo {
+  height: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.topnav {
+  border-bottom: var(--border-thickness) solid var(--border-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}

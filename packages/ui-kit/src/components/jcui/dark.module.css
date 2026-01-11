@@ -1,6 +1,8 @@
 .dark {
   --body-bg: #1e1e1e;
   --body-color: #f1f1f1;
+  --body-secondary: #2a2a2a;
+
   --primary-color: #007bff;
   --success-color: #28a745;
   --warning-color: #ffc107;

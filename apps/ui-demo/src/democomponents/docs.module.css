@@ -1,0 +1,55 @@
+.docs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: var(--border-thickness) solid var(--border-color);
+  border-radius: 1rem;
+  background: var(--body-color);
+}
+
+.docsHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.docsHeader code {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.docsPreview {
+  border: var(--border-thickness) solid var(--border-color);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--body-secondary);
+}
+
+.docsPreview > * {
+  margin: 0;
+}
+
+.docsSource {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.docsSource pre {
+  max-height: 280px;
+  overflow: auto;
+  background: var(--body-secondary);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.813rem;
+  line-height: 1.4;
+  border: var(--border-thickness) solid var(--border-color);
+}
+
+.docsLink {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}

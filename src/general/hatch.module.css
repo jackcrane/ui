@@ -3,8 +3,6 @@
   --bg: transparent;
   --stripe: var(--border-thickness);
 
-  background-color: #e5e5f7;
-  opacity: 0.8;
   background: repeating-linear-gradient(
     -45deg,
     var(--bc),

@@ -1,6 +1,7 @@
 import { Buttons } from "./buttons";
 import { Inputs } from "./inputs";
 import { Selects } from "./selects";
+import { Modals } from "./modals";
 
 export const Blocks = () => {
   return (
@@ -12,6 +13,8 @@ export const Blocks = () => {
       <Inputs />
       <hr />
       <Selects />
+      <hr />
+      <Modals />
     </div>
   );
 };

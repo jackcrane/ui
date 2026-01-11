@@ -1,0 +1,58 @@
+@property --cd {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+.chamfer {
+  --bt: var(--border-thickness);
+  --cd: var(--chamfer-distance);
+  --chamfer-color: var(--border-accent-color);
+
+  position: relative;
+  border: var(--bt) solid var(--border-color);
+  background: var(--button-bg, transparent);
+
+  transition:
+    --cd 180ms ease,
+    background-color 180ms ease;
+}
+
+.chamfer:not(.disabled):hover {
+  --cd: calc(var(--chamfer-distance) * 1.5);
+}
+
+.chamfer:active {
+  --cd: calc(var(--chamfer-distance) * 1.75);
+}
+
+.chamfer:not(.disabled):active {
+  --cd: calc(var(--chamfer-distance) * 1.75);
+}
+
+.chamfer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left top /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left top /
+      var(--bt) var(--cd) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right top /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right top /
+      var(--bt) var(--cd) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right bottom /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right bottom /
+      var(--bt) var(--cd) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left bottom /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left bottom /
+      var(--bt) var(--cd) no-repeat;
+
+  margin: calc(-1 * var(--bt));
+}

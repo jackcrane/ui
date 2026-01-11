@@ -1,0 +1,262 @@
+:root {
+  --chamfer-distance: 10px;
+  --border-thickness: 1.5px;
+  transition: all 180ms ease;
+}
+
+* {
+  transition: all 180ms ease;
+}
+
+.global {
+  --primary-color-100: color-mix(
+    in srgb,
+    var(--primary-color) 10%,
+    var(--body-bg)
+  );
+  --primary-color-200: color-mix(
+    in srgb,
+    var(--primary-color) 20%,
+    var(--body-bg)
+  );
+  --primary-color-300: color-mix(
+    in srgb,
+    var(--primary-color) 30%,
+    var(--body-bg)
+  );
+  --primary-color-400: color-mix(
+    in srgb,
+    var(--primary-color) 45%,
+    var(--body-bg)
+  );
+  --primary-color-500: var(--primary-color);
+  --primary-color-600: color-mix(
+    in srgb,
+    var(--primary-color) 85%,
+    var(--body-color)
+  );
+  --primary-color-700: color-mix(
+    in srgb,
+    var(--primary-color) 70%,
+    var(--body-color)
+  );
+  --primary-color-800: color-mix(
+    in srgb,
+    var(--primary-color) 55%,
+    var(--body-color)
+  );
+  --primary-color-900: color-mix(
+    in srgb,
+    var(--primary-color) 40%,
+    var(--body-color)
+  );
+
+  /* ===================== */
+  /* SUCCESS */
+  /* ===================== */
+  --success-color-100: color-mix(
+    in srgb,
+    var(--success-color) 10%,
+    var(--body-bg)
+  );
+  --success-color-200: color-mix(
+    in srgb,
+    var(--success-color) 20%,
+    var(--body-bg)
+  );
+  --success-color-300: color-mix(
+    in srgb,
+    var(--success-color) 30%,
+    var(--body-bg)
+  );
+  --success-color-400: color-mix(
+    in srgb,
+    var(--success-color) 45%,
+    var(--body-bg)
+  );
+  --success-color-500: var(--success-color);
+  --success-color-600: color-mix(
+    in srgb,
+    var(--success-color) 85%,
+    var(--body-color)
+  );
+  --success-color-700: color-mix(
+    in srgb,
+    var(--success-color) 70%,
+    var(--body-color)
+  );
+  --success-color-800: color-mix(
+    in srgb,
+    var(--success-color) 55%,
+    var(--body-color)
+  );
+  --success-color-900: color-mix(
+    in srgb,
+    var(--success-color) 40%,
+    var(--body-color)
+  );
+
+  /* ===================== */
+  /* WARNING */
+  /* ===================== */
+  --warning-color-100: color-mix(
+    in srgb,
+    var(--warning-color) 10%,
+    var(--body-bg)
+  );
+  --warning-color-200: color-mix(
+    in srgb,
+    var(--warning-color) 20%,
+    var(--body-bg)
+  );
+  --warning-color-300: color-mix(
+    in srgb,
+    var(--warning-color) 30%,
+    var(--body-bg)
+  );
+  --warning-color-400: color-mix(
+    in srgb,
+    var(--warning-color) 45%,
+    var(--body-bg)
+  );
+  --warning-color-500: var(--warning-color);
+  --warning-color-600: color-mix(
+    in srgb,
+    var(--warning-color) 85%,
+    var(--body-color)
+  );
+  --warning-color-700: color-mix(
+    in srgb,
+    var(--warning-color) 70%,
+    var(--body-color)
+  );
+  --warning-color-800: color-mix(
+    in srgb,
+    var(--warning-color) 55%,
+    var(--body-color)
+  );
+  --warning-color-900: color-mix(
+    in srgb,
+    var(--warning-color) 40%,
+    var(--body-color)
+  );
+
+  /* ===================== */
+  /* DANGER / ERROR */
+  /* ===================== */
+  --danger-color-100: color-mix(
+    in srgb,
+    var(--danger-color) 10%,
+    var(--body-bg)
+  );
+  --danger-color-200: color-mix(
+    in srgb,
+    var(--danger-color) 20%,
+    var(--body-bg)
+  );
+  --danger-color-300: color-mix(
+    in srgb,
+    var(--danger-color) 30%,
+    var(--body-bg)
+  );
+  --danger-color-400: color-mix(
+    in srgb,
+    var(--danger-color) 45%,
+    var(--body-bg)
+  );
+  --danger-color-500: var(--danger-color);
+  --danger-color-600: color-mix(
+    in srgb,
+    var(--danger-color) 85%,
+    var(--body-color)
+  );
+  --danger-color-700: color-mix(
+    in srgb,
+    var(--danger-color) 70%,
+    var(--body-color)
+  );
+  --danger-color-800: color-mix(
+    in srgb,
+    var(--danger-color) 55%,
+    var(--body-color)
+  );
+  --danger-color-900: color-mix(
+    in srgb,
+    var(--danger-color) 40%,
+    var(--body-color)
+  );
+
+  /* ===================== */
+  /* INFO */
+  /* ===================== */
+  --info-color-100: color-mix(in srgb, var(--info-color) 10%, var(--body-bg));
+  --info-color-200: color-mix(in srgb, var(--info-color) 20%, var(--body-bg));
+  --info-color-300: color-mix(in srgb, var(--info-color) 30%, var(--body-bg));
+  --info-color-400: color-mix(in srgb, var(--info-color) 45%, var(--body-bg));
+  --info-color-500: var(--info-color);
+  --info-color-600: color-mix(
+    in srgb,
+    var(--info-color) 85%,
+    var(--body-color)
+  );
+  --info-color-700: color-mix(
+    in srgb,
+    var(--info-color) 70%,
+    var(--body-color)
+  );
+  --info-color-800: color-mix(
+    in srgb,
+    var(--info-color) 55%,
+    var(--body-color)
+  );
+  --info-color-900: color-mix(
+    in srgb,
+    var(--info-color) 40%,
+    var(--body-color)
+  );
+
+  /* ===================== */
+  /* SECONDARY */
+  /* ===================== */
+  --secondary-color-100: color-mix(
+    in srgb,
+    var(--secondary-color) 10%,
+    var(--body-bg)
+  );
+  --secondary-color-200: color-mix(
+    in srgb,
+    var(--secondary-color) 20%,
+    var(--body-bg)
+  );
+  --secondary-color-300: color-mix(
+    in srgb,
+    var(--secondary-color) 30%,
+    var(--body-bg)
+  );
+  --secondary-color-400: color-mix(
+    in srgb,
+    var(--secondary-color) 45%,
+    var(--body-bg)
+  );
+  --secondary-color-500: var(--secondary-color);
+  --secondary-color-600: color-mix(
+    in srgb,
+    var(--secondary-color) 85%,
+    var(--body-color)
+  );
+  --secondary-color-700: color-mix(
+    in srgb,
+    var(--secondary-color) 70%,
+    var(--body-color)
+  );
+  --secondary-color-800: color-mix(
+    in srgb,
+    var(--secondary-color) 55%,
+    var(--body-color)
+  );
+  --secondary-color-900: color-mix(
+    in srgb,
+    var(--secondary-color) 40%,
+    var(--body-color)
+  );
+}

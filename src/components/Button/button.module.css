@@ -1,0 +1,117 @@
+@property --button-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+.button {
+  border-width: var(--border-thickness);
+  border-style: solid;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--button-bg, transparent);
+  color: var(--button-color, inherit);
+  border-color: var(--border-color);
+  cursor: pointer;
+}
+.button:hover {
+  --button-bg: var(--secondary-color-100);
+}
+.button:active {
+  --button-bg: var(--secondary-color-200);
+}
+
+.large {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+
+.primary {
+  --button-bg: var(--primary-color-100);
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+  --button-color: var(--primary-color-800);
+}
+.primary:hover {
+  --button-bg: var(--primary-color-200);
+}
+.primary:active {
+  --button-bg: var(--primary-color-300);
+}
+
+.success {
+  --button-bg: var(--success-color-100);
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+  --button-color: var(--success-color-800);
+}
+.success:hover {
+  --button-bg: var(--success-color-200);
+}
+.success:active {
+  --button-bg: var(--success-color-300);
+}
+
+.warning {
+  --button-bg: var(--warning-color-100);
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+  --button-color: var(--warning-color-800);
+}
+.warning:hover {
+  --button-bg: var(--warning-color-200);
+}
+.warning:active {
+  --button-bg: var(--warning-color-300);
+}
+
+.danger {
+  --button-bg: var(--danger-color-100);
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+  --button-color: var(--danger-color-800);
+}
+.danger:hover {
+  --button-bg: var(--danger-color-200);
+}
+.danger:active {
+  --button-bg: var(--danger-color-300);
+}
+
+.info {
+  --button-bg: var(--info-color-100);
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+  --button-color: var(--info-color-800);
+}
+.info:hover {
+  --button-bg: var(--info-color-200);
+}
+.info:active {
+  --button-bg: var(--info-color-300);
+}
+
+.secondary {
+  --button-bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+  --button-color: var(--secondary-color-800);
+}
+.secondary:hover {
+  --button-bg: var(--secondary-color-200);
+}
+.secondary:active {
+  --button-bg: var(--secondary-color-300);
+}

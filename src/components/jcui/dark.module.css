@@ -1,0 +1,16 @@
+.dark {
+  --body-bg: #1e1e1e;
+  --body-color: #f1f1f1;
+  --primary-color: #007bff;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --secondary-color: #6c757d;
+
+  --border-color: #3c3c3c;
+  --border-accent-color: #848484;
+
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@jcui/ui-kit": "file:../../packages/ui-kit",
+    "@tabler/icons-react": "^3.36.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

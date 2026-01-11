@@ -6,6 +6,7 @@ export { default as Input } from "./components/Input/Input";
 export { Loader } from "./components/Loader/loader";
 export { Radio, RadioGroup } from "./components/Radio/radio";
 export { default as Select } from "./components/Select/select";
+export { default as Dropdown } from "./components/Dropdown/dropdown";
 export { useModal } from "./components/modal/useModal";
 export { JCUIProvider } from "./components/jcui/provider";
 export { useJCUITheme } from "./components/jcui/theme-context";

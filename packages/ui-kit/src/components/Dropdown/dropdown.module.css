@@ -1,0 +1,242 @@
+@property --dropdown-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  padding: 0.5rem 1rem;
+  border: var(--border-thickness) solid var(--border-color);
+  background-color: var(--dropdown-bg);
+  color: var(--button-color, inherit);
+  cursor: pointer;
+}
+
+.trigger:hover {
+  --dropdown-bg: var(--secondary-color-100);
+}
+
+.trigger:active {
+  --dropdown-bg: var(--secondary-color-200);
+}
+
+.large {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  opacity: 0.65;
+  font-size: 0.85rem;
+}
+
+.content {
+  background-color: var(--body-bg);
+  border: var(--border-thickness) solid var(--border-color);
+  min-width: 180px;
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  z-index: 10;
+
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+
+  transform: none;
+}
+
+.content[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+
+.content[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+
+.content[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+
+.content[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.viewport {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--body-color);
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+}
+
+.item[data-highlighted] {
+  background-color: var(--secondary-color-100);
+}
+
+.item[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.itemLabel {
+  flex: 1;
+}
+
+.itemIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.itemIcon svg {
+  height: 1.25rem;
+}
+
+.separator {
+  height: var(--border-thickness);
+  background-color: var(--border-color);
+}
+
+.arrow {
+  fill: var(--body-bg);
+}
+
+.primary {
+  --dropdown-bg: var(--primary-color-100);
+  --border-color: var(--primary-color-300);
+  --button-color: var(--primary-color-800);
+  --border-accent-color: var(--primary-color-600);
+}
+
+.primary:hover {
+  --dropdown-bg: var(--primary-color-200);
+}
+
+.success {
+  --dropdown-bg: var(--success-color-100);
+  --border-color: var(--success-color-300);
+  --button-color: var(--success-color-800);
+  --border-accent-color: var(--success-color-600);
+}
+
+.success:hover {
+  --dropdown-bg: var(--success-color-200);
+}
+
+.warning {
+  --dropdown-bg: var(--warning-color-100);
+  --border-color: var(--warning-color-300);
+  --button-color: var(--warning-color-800);
+  --border-accent-color: var(--warning-color-600);
+}
+
+.warning:hover {
+  --dropdown-bg: var(--warning-color-200);
+}
+
+.danger {
+  --dropdown-bg: var(--danger-color-100);
+  --border-color: var(--danger-color-300);
+  --button-color: var(--danger-color-800);
+  --border-accent-color: var(--danger-color-600);
+}
+
+.danger:hover {
+  --dropdown-bg: var(--danger-color-200);
+}
+
+.info {
+  --dropdown-bg: var(--info-color-100);
+  --border-color: var(--info-color-300);
+  --button-color: var(--info-color-800);
+  --border-accent-color: var(--info-color-600);
+}
+
+.info:hover {
+  --dropdown-bg: var(--info-color-200);
+}
+
+.secondary {
+  --dropdown-bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --button-color: var(--secondary-color-800);
+  --border-accent-color: var(--secondary-color-600);
+}
+
+.secondary:hover {
+  --dropdown-bg: var(--secondary-color-200);
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

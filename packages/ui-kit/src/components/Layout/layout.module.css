@@ -29,3 +29,76 @@
   display: flex;
   align-items: center;
 }
+
+.main {
+  padding: 10px;
+}
+
+.sidenavLink {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  color: var(--body-color);
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 3px;
+  border: var(--border-thickness) solid transparent;
+  transition: all 180ms ease;
+
+  min-height: 36px;
+
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.focus {
+  border: var(--border-thickness) solid var(--border-color);
+}
+
+.sidenavIcon svg {
+  height: 1.25rem;
+}
+
+.sidenavSection {
+  padding: 0.25rem 0.5rem;
+  padding-right: 0px;
+}
+
+.sidenavSectionItems {
+  border-left: var(--border-thickness) solid var(--border-color);
+  max-height: 0;
+  opacity: 0;
+  transition: all 180ms ease;
+  overflow: hidden;
+}
+
+.sidenavSectionItems.open {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.sidenavSectionLabel {
+  color: var(--body-color);
+  padding: 0.25rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.sidenavSectionLabel:hover * {
+  opacity: 1;
+}
+
+.sidenavSectionLabel * {
+  opacity: 0.85;
+}
+
+.sidenavSectionTrigger {
+  rotate: -90deg;
+  transition: all 180ms ease;
+}
+
+.sidenavSectionTrigger.open {
+  rotate: 0deg;
+}

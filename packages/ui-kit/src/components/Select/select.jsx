@@ -1,4 +1,4 @@
-import { Select } from "radix-ui";
+import * as Select from "@radix-ui/react-select";
 import clsx from "clsx";
 import styles from "./select.module.css";
 import chamferStyles from "../../general/chamfer.module.css";

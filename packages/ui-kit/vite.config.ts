@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   plugins: [react(), cssInjectedByJs()],
   build: {
+    minify: false,
     cssCodeSplit: false,
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),

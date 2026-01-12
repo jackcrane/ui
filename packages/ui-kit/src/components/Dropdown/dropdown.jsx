@@ -56,7 +56,6 @@ export default function Dropdown({
 
   const contentClassName = clsx(
     styles.content,
-    styles.viewport,
     variant && styles[variant],
     chamfer && chamferStyles.chamfer
   );
@@ -69,37 +68,33 @@ export default function Dropdown({
   return (
     <DropdownMenu.Root {...props}>
       <DropdownMenu.Trigger className={triggerClassName} disabled={disabled}>
-        {trigger ?? (
-          <>
-            <span>{triggerLabel}</span>
-            <span className={styles.icon}>▾</span>
-          </>
-        )}
+        {trigger ?? <span>{triggerLabel}</span>}
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
           className={contentClassName}
           align={align}
           side={side}
-          sideOffset={6}
+          sideOffset={0}
         >
-          {items.map((item, index) => {
-            if (item.type === "separator") {
-              const separatorKey = item.key ?? `separator-${index}`;
-              return (
-                <DropdownMenu.Separator
-                  key={separatorKey}
-                  className={styles.separator}
-                />
-              );
-            }
+          <div className={styles.viewport}>
+            {items.map((item, index) => {
+              if (item.type === "separator") {
+                const separatorKey = item.key ?? `separator-${index}`;
+                return (
+                  <DropdownMenu.Separator
+                    key={separatorKey}
+                    className={styles.separator}
+                  />
+                );
+              }
 
-            const itemKey =
-              item.key ??
-              item.value ??
-              (typeof item.label === "string"
-                ? `${item.label}-${index}`
-                : `item-${index}`);
+              const itemKey =
+                item.key ??
+                item.value ??
+                (typeof item.label === "string"
+                  ? `${item.label}-${index}`
+                  : `item-${index}`);
 
               return (
                 <DropdownMenu.Item
@@ -116,7 +111,8 @@ export default function Dropdown({
                   <span className={styles.itemLabel}>{item.label}</span>
                 </DropdownMenu.Item>
               );
-          })}
+            })}
+          </div>
           <DropdownMenu.Arrow className={styles.arrow} />
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

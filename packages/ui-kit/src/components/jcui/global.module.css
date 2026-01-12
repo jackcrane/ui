@@ -6,6 +6,10 @@
   transition: all 180ms ease;
 }
 
+div[data-radix-popper-content-wrapper] {
+  transition: none;
+}
+
 * {
   transition: all 180ms ease;
   box-sizing: border-box;

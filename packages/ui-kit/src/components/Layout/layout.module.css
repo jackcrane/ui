@@ -9,6 +9,9 @@
   border-right: var(--border-thickness) solid var(--border-color);
   background-color: var(--body-secondary);
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
 }
 
 .logo {
@@ -72,6 +75,10 @@
   overflow: hidden;
 }
 
+.sidenavSectionItems > div {
+  margin-left: calc(var(--border-thickness) * -1);
+}
+
 .sidenavSectionItems.open {
   max-height: 800px;
   opacity: 1;
@@ -101,4 +108,11 @@
 
 .sidenavSectionTrigger.open {
   rotate: 0deg;
+}
+
+.sidenavDropdown {
+  border: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  width: 100%;
 }

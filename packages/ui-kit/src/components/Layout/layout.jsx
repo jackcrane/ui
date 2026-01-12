@@ -12,6 +12,7 @@ import {
   IconHome,
   IconSend,
 } from "@tabler/icons-react";
+import Dropdown from "../Dropdown/dropdown";
 
 const sidenavItems = [
   {
@@ -65,11 +66,18 @@ const sidenavItems = [
     ],
   },
   {
+    type: "item",
+    label: "Item 5",
+    href: "#",
+    icon: <IconSend color="var(--danger-color)" />,
+  },
+  {
     type: "grow",
   },
   {
     type: "dropdown",
     label: "Icons",
+    icon: <Icon2fa color="var(--success-color)" />,
     items: [
       { type: "item", label: "Home", href: "#" },
       { type: "item", label: "Settings", href: "#" },
@@ -85,6 +93,7 @@ const hasActive = (item) => {
 };
 
 const SidenavGeneric = ({ item }) => {
+  if (item.type === "grow") return <SidenavGrow />;
   return (
     <div
       key={item.label}
@@ -97,6 +106,7 @@ const SidenavGeneric = ({ item }) => {
     >
       {item.type === "item" && <SidenavItem item={item} />}
       {item.type === "section" && <SidenavSection item={item} />}
+      {item.type === "dropdown" && <SidenavDropdown item={item} />}
     </div>
   );
 };
@@ -150,6 +160,29 @@ const SidenavSection = ({ item }) => {
       </div>
     </div>
   );
+};
+
+const SidenavDropdown = ({ item }) => {
+  return (
+    <Dropdown
+      items={item.items}
+      onItemSelect={(value, item) => {
+        console.log("item", value, item);
+      }}
+      triggerLabel={
+        <div className={styles.sidenavLink} style={{ padding: 0, margin: 0 }}>
+          {item.icon}
+          {item.label}
+        </div>
+      }
+      chamfer={false}
+      triggerClassName={styles.sidenavDropdown}
+    />
+  );
+};
+
+const SidenavGrow = () => {
+  return <div style={{ flex: 1 }}></div>;
 };
 
 export const Layout = ({ children }) => {

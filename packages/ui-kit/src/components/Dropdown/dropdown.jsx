@@ -47,6 +47,7 @@ export default function Dropdown({
   triggerProps,
   contentProps,
   loading,
+  triggerClassName: _triggerClassName,
   ...props
 }) {
   const triggerClassName = clsx(
@@ -56,7 +57,8 @@ export default function Dropdown({
     size === "large" && styles.large,
     size === "small" && styles.small,
     disabled && styles.disabled,
-    disabled && hatchStyles.hatch
+    disabled && hatchStyles.hatch,
+    _triggerClassName
   );
 
   const contentClassName = clsx(
@@ -125,7 +127,6 @@ export default function Dropdown({
               );
             })}
           </div>
-          <DropdownMenu.Arrow className={styles.arrow} />
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

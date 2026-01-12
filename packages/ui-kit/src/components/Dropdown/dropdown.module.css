@@ -58,6 +58,7 @@
   z-index: 10;
   position: relative;
   will-change: transform, opacity;
+  transform: translateY(-1px);
 }
 
 .content[data-state="closed"] .viewport {

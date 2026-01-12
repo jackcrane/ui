@@ -40,6 +40,133 @@ export const Dropdowns = () => {
           triggerLabel="Account"
         />
       </div>
+
+      <h3>No chamfer</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          chamfer={false}
+        />
+      </div>
+
+      <h3>Variants</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          variant="primary"
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          variant="success"
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          variant="warning"
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          variant="danger"
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          variant="info"
+        />
+      </div>
+
+      <h3>Sizes</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          size="large"
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          size="small"
+        />
+      </div>
+
+      <h3>Disabled</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          disabled
+        />
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          disabled
+          variant="primary"
+        />
+      </div>
+
+      <h3>Loading</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Dropdown
+          items={BASE_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Account"
+          loading
+        />
+      </div>
     </div>
   );
 };

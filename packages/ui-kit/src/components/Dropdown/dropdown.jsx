@@ -3,6 +3,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
 import styles from "./dropdown.module.css";
+import { Loader } from "../Loader/loader";
 
 /**
  * @typedef DropdownItem
@@ -42,6 +43,10 @@ export default function Dropdown({
   align = "start",
   side = "bottom",
   onItemSelect,
+  showArrow = true,
+  triggerProps,
+  contentProps,
+  loading,
   ...props
 }) {
   const triggerClassName = clsx(
@@ -67,8 +72,14 @@ export default function Dropdown({
 
   return (
     <DropdownMenu.Root {...props}>
-      <DropdownMenu.Trigger className={triggerClassName} disabled={disabled}>
+      <DropdownMenu.Trigger
+        className={triggerClassName}
+        disabled={disabled || loading}
+        {...triggerProps}
+      >
         {trigger ?? <span>{triggerLabel}</span>}
+        {showArrow && !loading && "▾"}
+        {loading && <Loader />}
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
@@ -76,6 +87,7 @@ export default function Dropdown({
           align={align}
           side={side}
           sideOffset={0}
+          {...contentProps}
         >
           <div className={styles.viewport}>
             {items.map((item, index) => {

@@ -3,15 +3,21 @@ import styles from "./hatch.module.css";
 import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
 
-export default function Hatch({ children, className, variant, ...props }) {
+export default function Hatch({
+  children,
+  className,
+  variant,
+  chamfer = true,
+  ...props
+}) {
   return (
     <div
       className={classNames(
         styles.hatch,
         styles[variant],
         hatchStyles.hatch,
-        chamferStyles.chamfer,
-        className
+        chamfer && chamferStyles.chamfer,
+        className,
       )}
       {...props}
     >

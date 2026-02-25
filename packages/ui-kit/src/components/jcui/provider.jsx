@@ -4,6 +4,8 @@ import light from "./light.module.css";
 import global from "./global.module.css";
 import classnames from "classnames";
 import { DEFAULT_THEME, ThemeContext } from "./theme-context";
+import { Toaster } from "react-hot-toast";
+import toastStyles from "../Toast/toast.module.css";
 
 export const JCUIProvider = ({
   children,
@@ -46,6 +48,13 @@ export const JCUIProvider = ({
         {...props}
       >
         {children}
+        <Toaster
+          position="bottom-right"
+          toastOptions={{ duration: 4200 }}
+          limit={4}
+          gutter={10}
+          containerClassName={toastStyles.toastViewport}
+        />
       </div>
     </ThemeContext.Provider>
   );

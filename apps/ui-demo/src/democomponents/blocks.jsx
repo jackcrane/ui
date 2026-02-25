@@ -8,13 +8,14 @@ import { Modals } from "./modals";
 import { Charts } from "./charts";
 import { Cards } from "./cards";
 import { Layouts } from "./layouts";
+import { Toasts } from "./toasts";
 
 export const Blocks = () => {
   return (
-    <div>
-      <h1>JC/UI Demo</h1>
-      <hr />
-      <Buttons />
+  <div>
+    <h1>JC/UI Demo</h1>
+    <hr />
+    <Buttons />
       <hr />
       <Inputs />
       <hr />
@@ -24,15 +25,17 @@ export const Blocks = () => {
       <hr />
       <Selects />
       <hr />
-      <Modals />
-      <hr />
-      <Charts />
-      <hr />
-      <Dropdowns />
-      <hr />
-      <Cards />
-      <hr />
-      <Layouts />
-    </div>
-  );
+    <Modals />
+    <hr />
+    <Charts />
+    <hr />
+    <Dropdowns />
+    <hr />
+    <Cards />
+    <hr />
+    <Layouts />
+    <hr />
+    <Toasts />
+  </div>
+);
 };

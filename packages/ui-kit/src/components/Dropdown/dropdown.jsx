@@ -56,6 +56,7 @@ export default function Dropdown({
 }) {
   const triggerClassName = clsx(
     styles.trigger,
+    !variant && styles.pageBackground,
     variant && styles[variant],
     chamfer && chamferStyles.chamfer,
     size === "large" && styles.large,

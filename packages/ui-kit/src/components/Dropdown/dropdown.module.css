@@ -26,6 +26,17 @@
   --dropdown-bg: var(--secondary-color-200);
 }
 
+.pageBackground {
+  --dropdown-bg: var(--body-bg);
+  --button-bg: var(--body-bg);
+}
+
+.pageBackground:hover,
+.pageBackground:active {
+  --dropdown-bg: var(--body-bg);
+  --button-bg: var(--body-bg);
+}
+
 .large {
   font-size: 1.25rem;
   padding: 0.75rem 1.25rem;

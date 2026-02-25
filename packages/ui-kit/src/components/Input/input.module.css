@@ -21,6 +21,20 @@
   outline: none;
 }
 
+.pageBackground {
+  --input-bg: var(--body-bg);
+  --button-bg: var(--body-bg);
+}
+.pageBackground:hover {
+  --input-bg: var(--body-bg);
+  --button-bg: var(--body-bg);
+}
+.pageBackground:focus,
+.pageBackground:focus-within {
+  --input-bg: var(--body-bg);
+  --button-bg: var(--body-bg);
+}
+
 .large {
   font-size: 1.25rem;
   padding: 0.75rem 1.25rem;

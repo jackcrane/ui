@@ -14,6 +14,7 @@ import { Loader } from "../Loader/loader";
  * @param {boolean} props.chamfer - Whether to apply a chamfer effect to the button.
  * @param {string} props.size - Size of the button. Either large or small. Defaults to medium.
  * @param {boolean} props.disabled - Whether the button is disabled.
+ * @param {boolean} props.loading - Whether the button is loading.
  * @returns {JSX.Element}
  */
 export default function Button({
@@ -29,13 +30,14 @@ export default function Button({
     <button
       className={clsx(
         styles.button,
+        !variant && styles.pageBackground,
         styles[variant],
         chamfer && chamferStyles.chamfer,
         size === "large" && styles.large,
         size === "small" && styles.small,
         disabled && chamferStyles.disabled,
         disabled && hatchStyles.hatch,
-        disabled && styles.disabled
+        disabled && styles.disabled,
       )}
       disabled={disabled}
       {...props}

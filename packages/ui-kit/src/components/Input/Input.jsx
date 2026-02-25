@@ -24,6 +24,7 @@ export default function Input({
       <div
         className={classnames(
           chamfer && chamferStyles.chamfer,
+          !variant && styles.pageBackground,
           styles[variant],
         )}
       >
@@ -31,6 +32,7 @@ export default function Input({
           id={inputId}
           className={classnames(
             styles.input,
+            !variant && styles.pageBackground,
             styles[variant],
             size === "large" && styles.large,
             size === "small" && styles.small,

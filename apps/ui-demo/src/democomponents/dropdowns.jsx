@@ -18,6 +18,32 @@ const BASE_ITEMS = [
   { key: "logout", value: "logout", label: "Log out", icon: <IconLogout /> },
 ];
 
+const LINK_AND_CLICK_ITEMS = [
+  {
+    key: "profile",
+    value: "profile",
+    label: "Profile",
+    href: "#profile",
+    onClick: () => console.log("profile clicked"),
+    icon: <IconUser />,
+  },
+  {
+    key: "settings-click",
+    value: "settings-click",
+    label: "Settings action",
+    onClick: () => console.log("settings action clicked"),
+    icon: <IconSettings />,
+  },
+  { type: "separator" },
+  {
+    key: "logout-click",
+    value: "logout-click",
+    label: "Log out",
+    onClick: () => console.log("logout clicked"),
+    icon: <IconLogout />,
+  },
+];
+
 export const Dropdowns = () => {
   const handleMenuAction = (value, item) => {
     console.log("menu action", value, item);
@@ -165,6 +191,22 @@ export const Dropdowns = () => {
           onItemSelect={handleMenuAction}
           triggerLabel="Account"
           loading
+        />
+      </div>
+
+      <h3>Href + onClick</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <Dropdown
+          items={LINK_AND_CLICK_ITEMS}
+          onItemSelect={handleMenuAction}
+          triggerLabel="Actions"
         />
       </div>
     </div>

@@ -13,7 +13,11 @@ import { Loader } from "../Loader/loader";
  * @property {string} [value]
  * @property {boolean} [disabled]
  * @property {import("react").ReactNode} [icon]
- * @property {() => void} [onSelect]
+ * @property {(value: string | undefined) => void} [onSelect]
+ * @property {(event: Event) => void} [onClick]
+ * @property {string} [href]
+ * @property {string} [target]
+ * @property {string} [rel]
  * @property {"item" | "separator"} [type]
  */
 
@@ -67,7 +71,8 @@ export default function Dropdown({
     chamfer && chamferStyles.chamfer
   );
 
-  const handleItemSelect = (item) => {
+  const handleItemSelect = (item, event) => {
+    item.onClick?.(event);
     item.onSelect?.(item.value);
     onItemSelect?.(item.value, item);
   };
@@ -110,19 +115,40 @@ export default function Dropdown({
                   ? `${item.label}-${index}`
                   : `item-${index}`);
 
-              return (
-                <DropdownMenu.Item
-                  key={itemKey}
-                  onSelect={() => handleItemSelect(item)}
-                  disabled={item.disabled}
-                  className={styles.item}
-                >
+              const itemContent = (
+                <>
                   {item.icon && (
                     <span className={styles.itemIcon} aria-hidden>
                       {item.icon}
                     </span>
                   )}
                   <span className={styles.itemLabel}>{item.label}</span>
+                </>
+              );
+
+              if (item.href && !item.disabled) {
+                return (
+                  <DropdownMenu.Item
+                    key={itemKey}
+                    asChild
+                    onSelect={(event) => handleItemSelect(item, event)}
+                    className={styles.item}
+                  >
+                    <a href={item.href} target={item.target} rel={item.rel}>
+                      {itemContent}
+                    </a>
+                  </DropdownMenu.Item>
+                );
+              }
+
+              return (
+                <DropdownMenu.Item
+                  key={itemKey}
+                  onSelect={(event) => handleItemSelect(item, event)}
+                  disabled={item.disabled}
+                  className={styles.item}
+                >
+                  {itemContent}
                 </DropdownMenu.Item>
               );
             })}

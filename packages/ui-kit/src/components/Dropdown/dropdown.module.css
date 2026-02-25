@@ -106,6 +106,7 @@
   cursor: pointer;
   position: relative;
   background: transparent;
+  text-decoration: none;
 }
 
 .item[data-highlighted] {

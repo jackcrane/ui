@@ -8,6 +8,13 @@
   flex-direction: column;
 }
 
+.pageBackground {
+  --card-bg: var(--body-bg);
+  --button-bg: var(--body-bg);
+  --card-color: var(--body-color);
+  background-color: var(--body-bg);
+}
+
 .card .title {
   font-size: 1.25rem;
   padding: 0.5rem 1rem;

@@ -17,6 +17,7 @@ export default function Card({
     <div
       className={classnames(
         styles.card,
+        !variant && styles.pageBackground,
         styles[variant],
         chamfer && chamferStyles.chamfer,
         size === "large" && styles.large,

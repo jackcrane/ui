@@ -1,17 +1,28 @@
-import { Button, useModal } from "@jackcrane/ui";
+import { useState } from "react";
+import { Button, Input, useModal } from "@jackcrane/ui";
 
 export const Modals = () => {
+  const [modalInputValue, setModalInputValue] = useState("");
+
   const { Modal, setOpen } = useModal({
     title: <>Delete item?</>,
     content: (
-      <iframe
-        src="https://docs.featurebench.com/p/preventing-plagarism/"
-        style={{
-          width: "100%",
-          height: "100%",
-          border: "none",
-        }}
-      />
+      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <p style={{ margin: 0 }}>
+          Regression test: type in the input below. Every keystroke updates
+          state, but the modal should stay steady and not replay the enter
+          animation.
+        </p>
+        <Input
+          type="text"
+          placeholder="Type here"
+          value={modalInputValue}
+          onChange={(event) => setModalInputValue(event.target.value)}
+        />
+        <p style={{ margin: 0 }}>
+          Current value: <strong>{modalInputValue || "empty"}</strong>
+        </p>
+      </div>
     ),
     footer: <Button variant="primary">Continue</Button>,
   });

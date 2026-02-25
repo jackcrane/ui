@@ -1,0 +1,47 @@
+.hatch {
+  padding: 0.5rem 1rem;
+  color: var(--hatch-color, inherit);
+  --button-bg: var(--bg, transparent);
+}
+
+.primary {
+  --bg: var(--primary-color-100);
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+  --hatch-color: var(--primary-color-800);
+}
+
+.success {
+  --bg: var(--success-color-100);
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+  --hatch-color: var(--success-color-800);
+}
+
+.warning {
+  --bg: var(--warning-color-100);
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+  --hatch-color: var(--warning-color-800);
+}
+
+.danger {
+  --bg: var(--danger-color-100);
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+  --hatch-color: var(--danger-color-800);
+}
+
+.info {
+  --bg: var(--info-color-100);
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+  --hatch-color: var(--info-color-800);
+}
+
+.secondary {
+  --bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+  --hatch-color: var(--secondary-color-800);
+}

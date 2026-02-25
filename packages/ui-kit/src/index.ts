@@ -7,6 +7,7 @@ export { Loader } from "./components/Loader/loader";
 export { Radio, RadioGroup } from "./components/Radio/radio";
 export { default as Select } from "./components/Select/select";
 export { default as Dropdown } from "./components/Dropdown/dropdown";
+export { default as Hatch } from "./components/Hatch/hatch";
 export { toast } from "./components/Toast/toast";
 export { useModal } from "./components/modal/useModal";
 export { JCUIProvider } from "./components/jcui/provider";

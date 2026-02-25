@@ -3,6 +3,7 @@ export { default as Card } from "./components/Card/card";
 export { default as Checkbox } from "./components/Checkbox/checkbox";
 export { BarChart, LineChart, RadarChart } from "./components/charts";
 export { default as Input } from "./components/Input/Input";
+export { default as FileUpload } from "./components/FileUpload/file-upload";
 export { Loader } from "./components/Loader/loader";
 export { Radio, RadioGroup } from "./components/Radio/radio";
 export { default as Select } from "./components/Select/select";

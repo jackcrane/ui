@@ -1,5 +1,6 @@
 import { Buttons } from "./buttons";
 import { Inputs } from "./inputs";
+import { FileUploads } from "./file-uploads";
 import { Checkboxes } from "./checkboxes";
 import { Radios } from "./radios";
 import { Selects } from "./selects";
@@ -18,6 +19,8 @@ export const Blocks = () => {
     <Buttons />
       <hr />
       <Inputs />
+      <hr />
+      <FileUploads />
       <hr />
       <Checkboxes />
       <hr />

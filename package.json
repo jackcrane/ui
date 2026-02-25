@@ -1,6 +1,6 @@
 {
   "name": "jc-ui",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "type": "module",
   "workspaces": [
     "packages/*",
@@ -10,6 +10,7 @@
     "build": "npm run build:kit && npm run build:demo",
     "build:kit": "npm run build --workspace=@jackcrane/ui",
     "publish:kit": "npm run build:kit && cd packages/ui-kit && npm publish --access public",
+    "publish": "npm run publish:kit",
     "build:demo": "npm run build --workspace=jcui-demo",
     "dev:demo": "npm run dev --workspace=jcui-demo",
     "lint": "eslint \"apps/**/*.{js,jsx,ts,tsx}\" \"packages/**/*.{js,jsx,ts,tsx}\""

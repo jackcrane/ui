@@ -24,6 +24,7 @@
   border-top: var(--border-thickness) solid var(--border-color);
   flex: 1;
   background-color: var(--card-bg);
+  padding: 0.5rem 1rem;
 }
 
 .large .body,

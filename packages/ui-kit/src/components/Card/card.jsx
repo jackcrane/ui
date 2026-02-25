@@ -9,6 +9,8 @@ export default function Card({
   chamfer = true,
   size,
   footerHeight = 0,
+  footer, // I hardly know her
+  title,
   ...props
 }) {
   return (
@@ -18,13 +20,13 @@ export default function Card({
         styles[variant],
         chamfer && chamferStyles.chamfer,
         size === "large" && styles.large,
-        size === "small" && styles.small
+        size === "small" && styles.small,
       )}
       {...props}
     >
-      {props.title && (
+      {title && (
         <div className={classnames(styles.title, hatchStyles.hatch)}>
-          {props.title}
+          {title}
         </div>
       )}
       <div className={styles.body}>{children}</div>
@@ -32,7 +34,9 @@ export default function Card({
         <div
           className={classnames(hatchStyles.hatch, styles.footer)}
           style={{ flexBasis: footerHeight }}
-        />
+        >
+          {footer}
+        </div>
       )}
     </div>
   );

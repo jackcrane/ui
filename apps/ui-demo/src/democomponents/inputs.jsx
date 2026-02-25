@@ -112,6 +112,11 @@ export const Inputs = () => {
         />
         <Input type="text" placeholder="Info" variant="info" chamfer={false} />
       </div>
+
+      <h3>Label</h3>
+      <div style={{ display: "flex", flexDirection: "row", gap: 4 }}>
+        <Input type="text" placeholder="Default" label="Label" />
+      </div>
     </div>
   );
 };

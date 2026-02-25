@@ -12,6 +12,7 @@
   background-color: var(--input-bg, transparent);
   color: var(--input-color, inherit);
   border-color: var(--border-color);
+  width: calc(100% + var(--border-thickness));
 }
 .input:hover {
   --input-bg: var(--secondary-color-100);
@@ -86,4 +87,13 @@
 }
 .secondary:hover {
   --input-bg: var(--secondary-color-200);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
 }

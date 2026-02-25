@@ -1,4 +1,4 @@
-import { Button, toast } from "@jcui/ui-kit";
+import { Button, toast } from "@jackcrane/ui";
 
 const VARIANTS = [
   { label: "Default", action: () => toast("Default notification") },

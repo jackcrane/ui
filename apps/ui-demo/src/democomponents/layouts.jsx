@@ -1,4 +1,4 @@
-import { Layout } from "@jcui/ui-kit";
+import { Layout } from "@jackcrane/ui";
 
 export const Layouts = () => {
   return (

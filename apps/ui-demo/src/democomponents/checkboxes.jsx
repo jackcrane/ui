@@ -1,4 +1,4 @@
-import { Checkbox } from "@jcui/ui-kit";
+import { Checkbox } from "@jackcrane/ui";
 
 const rowStyle = {
   display: "flex",

@@ -1,6 +1,6 @@
 import React from "react";
 import { Blocks } from "./democomponents/blocks";
-import { ColorSwitcher, JCUIProvider } from "@jcui/ui-kit";
+import { ColorSwitcher, JCUIProvider } from "@jackcrane/ui";
 
 function App() {
   return (

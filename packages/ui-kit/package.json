@@ -1,5 +1,5 @@
 {
-  "name": "@jcui/ui-kit",
+  "name": "@jackcrane/ui",
   "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
@@ -17,6 +17,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json",
     "dev": "vite",

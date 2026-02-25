@@ -4,7 +4,7 @@ A workspace that splits the reusable React components into a publishable UI kit 
 
 ## Structure
 - `packages/ui-kit` – the React component library configured for tree-shaken Vite builds, TypeScript declarations, and automatic dependency inference so it can publish clean artifacts to npm.
-- `apps/ui-demo` – a lightweight Vite + React playground that consumes `@jcui/ui-kit` via the workspace link and renders the shared Blocks demos.
+- `apps/ui-demo` – a lightweight Vite + React playground that consumes `@jackcrane/ui` via the workspace link and renders the shared Blocks demos.
 
 ## Getting started
 1. `npm install`

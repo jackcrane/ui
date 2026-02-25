@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Select } from "@jcui/ui-kit";
+import { Select } from "@jackcrane/ui";
 
 const OPTIONS = [
   { value: "1", label: "Item 1" },

@@ -13,7 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@demo": demoSrc,
-      "@jcui/ui-kit": uiKitSrc,
+      "@jackcrane/ui": uiKitSrc,
     },
   },
 });

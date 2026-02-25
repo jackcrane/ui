@@ -1,4 +1,4 @@
-import { Button } from "@jcui/ui-kit";
+import { Button } from "@jackcrane/ui";
 
 export const Buttons = () => {
   return (

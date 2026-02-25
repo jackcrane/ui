@@ -1,4 +1,4 @@
-import { BarChart, LineChart, RadarChart } from "@jcui/ui-kit";
+import { BarChart, LineChart, RadarChart } from "@jackcrane/ui";
 
 const percentFormat = (value) => `${Math.round(value * 100)}%`;
 

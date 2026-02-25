@@ -1,4 +1,4 @@
-import { Dropdown } from "@jcui/ui-kit";
+import { Dropdown } from "@jackcrane/ui";
 import { IconLogout, IconSettings, IconUser } from "@tabler/icons-react";
 
 const BASE_ITEMS = [

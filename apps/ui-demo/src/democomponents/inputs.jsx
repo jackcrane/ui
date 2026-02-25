@@ -1,4 +1,4 @@
-import { Input } from "@jcui/ui-kit";
+import { Input } from "@jackcrane/ui";
 
 export const Inputs = () => {
   return (

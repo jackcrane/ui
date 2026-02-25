@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "@jcui/ui-kit";
+import { Radio, RadioGroup } from "@jackcrane/ui";
 
 const rowStyle = {
   display: "flex",

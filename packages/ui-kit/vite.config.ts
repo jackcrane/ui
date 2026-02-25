@@ -30,7 +30,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@jcui/ui-kit": path.resolve(__dirname, "src"),
+      "@jackcrane/ui": path.resolve(__dirname, "src"),
     },
   },
 });

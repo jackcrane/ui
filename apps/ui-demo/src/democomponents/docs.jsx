@@ -1,4 +1,4 @@
-import { Layout } from "@jcui/ui-kit";
+import { Layout } from "@jackcrane/ui";
 import layoutSource from "@kit-source/components/Layout/layout.jsx?raw";
 import layoutStyles from "@kit-source/components/Layout/layout.module.css?raw";
 import styles from "./docs.module.css";

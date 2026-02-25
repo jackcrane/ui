@@ -1,4 +1,4 @@
-import { Button, useModal } from "@jcui/ui-kit";
+import { Button, useModal } from "@jackcrane/ui";
 
 export const Modals = () => {
   const { Modal, setOpen } = useModal({

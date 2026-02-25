@@ -111,6 +111,54 @@ const FileIcon = () => (
   </svg>
 );
 
+const TrashIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    role="presentation"
+    aria-hidden
+    className={styles.trashIcon}
+  >
+    <g className={styles.trashLid}>
+      <path
+        d="M4 7h16"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 7V5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+    <path
+      d="M10 11v6"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M14 11v6"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2l1 -12"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const FileUpload = forwardRef(function FileUpload(
   {
     label,
@@ -122,6 +170,8 @@ const FileUpload = forwardRef(function FileUpload(
     onFilesChange,
     renderFile,
     showFileList = true,
+    removable = true,
+    onFileRemove,
     className,
     dropzoneClassName,
     variant,
@@ -203,18 +253,27 @@ const FileUpload = forwardRef(function FileUpload(
     inputProps.onChange?.(event);
   };
 
-  const syncDroppedFilesToInput = (droppedFiles, dropEvent) => {
+  const syncFilesToInput = (nextFiles, triggerEvent) => {
     const inputNode = inputRef.current;
 
     if (!inputNode) {
-      commitFiles(droppedFiles, dropEvent);
+      commitFiles(nextFiles, triggerEvent);
       return;
+    }
+
+    if (nextFiles.length === 0) {
+      inputNode.value = "";
     }
 
     if (typeof DataTransfer !== "undefined") {
       try {
         const transfer = new DataTransfer();
-        droppedFiles.forEach((file) => transfer.items.add(file));
+        nextFiles.forEach((file) => {
+          if (typeof File !== "undefined" && file instanceof File) {
+            transfer.items.add(file);
+          }
+        });
+
         inputNode.files = transfer.files;
         inputNode.dispatchEvent(new Event("change", { bubbles: true }));
         return;
@@ -223,7 +282,12 @@ const FileUpload = forwardRef(function FileUpload(
       }
     }
 
-    commitFiles(droppedFiles, dropEvent);
+    if (nextFiles.length === 0) {
+      inputNode.dispatchEvent(new Event("change", { bubbles: true }));
+      return;
+    }
+
+    commitFiles(nextFiles, triggerEvent);
   };
 
   const handleDropzoneClick = () => {
@@ -305,7 +369,24 @@ const FileUpload = forwardRef(function FileUpload(
       return;
     }
 
-    syncDroppedFilesToInput(nextFiles, event);
+    syncFilesToInput(nextFiles, event);
+  };
+
+  const handleRemoveFile = (index, event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (disabled) {
+      return;
+    }
+
+    const removedFile = selectedFiles[index];
+    const nextFiles = selectedFiles.filter((_, currentIndex) => {
+      return currentIndex !== index;
+    });
+
+    syncFilesToInput(nextFiles, event);
+    onFileRemove?.(removedFile, index, event);
   };
 
   const hintText =
@@ -385,32 +466,58 @@ const FileUpload = forwardRef(function FileUpload(
           {previewItems.map((item, index) => {
             if (renderFile) {
               return (
-                <div key={`${item.name}-${index}`} className={styles.customFile}>
-                  {renderFile(item.file, index)}
+                <div key={`${item.name}-${index}`} className={styles.customFileRow}>
+                  <div className={styles.customFile}>
+                    {renderFile(item.file, index)}
+                  </div>
+                  {removable && (
+                    <button
+                      type="button"
+                      className={styles.removeButton}
+                      onClick={(event) => handleRemoveFile(index, event)}
+                      aria-label={`Remove ${item.name}`}
+                      disabled={disabled}
+                    >
+                      <TrashIcon />
+                    </button>
+                  )}
                 </div>
               );
             }
 
             return (
               <div key={`${item.name}-${index}`} className={styles.fileItem}>
-                <span className={styles.filePreview} aria-hidden>
-                  {item.previewUrl ? (
-                    <img
-                      className={styles.filePreviewImage}
-                      src={item.previewUrl}
-                      alt=""
-                    />
-                  ) : (
-                    fileFallbackIcon
-                  )}
-                </span>
+                <span className={styles.fileInfo}>
+                  <span className={styles.filePreview} aria-hidden>
+                    {item.previewUrl ? (
+                      <img
+                        className={styles.filePreviewImage}
+                        src={item.previewUrl}
+                        alt=""
+                      />
+                    ) : (
+                      fileFallbackIcon
+                    )}
+                  </span>
 
-                <span className={styles.fileMeta}>
-                  <span className={styles.fileName}>{item.name}</span>
-                  {item.sizeText && (
-                    <span className={styles.fileSize}>{item.sizeText}</span>
-                  )}
+                  <span className={styles.fileMeta}>
+                    <span className={styles.fileName}>{item.name}</span>
+                    {item.sizeText && (
+                      <span className={styles.fileSize}>{item.sizeText}</span>
+                    )}
+                  </span>
                 </span>
+                {removable && (
+                  <button
+                    type="button"
+                    className={styles.removeButton}
+                    onClick={(event) => handleRemoveFile(index, event)}
+                    aria-label={`Remove ${item.name}`}
+                    disabled={disabled}
+                  >
+                    <TrashIcon />
+                  </button>
+                )}
               </div>
             );
           })}

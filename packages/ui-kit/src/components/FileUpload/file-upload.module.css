@@ -121,11 +121,20 @@
 .fileItem {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: space-between;
+  gap: 0.5rem;
   width: 100%;
   padding: 0.5rem 1rem;
   border: var(--border-thickness) solid var(--border-color);
   background-color: var(--body-bg);
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  flex: 1;
 }
 
 .filePreview {
@@ -155,6 +164,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  flex: 1;
 }
 
 .fileName {
@@ -169,8 +179,71 @@
   opacity: 0.7;
 }
 
-.customFile {
+.customFileRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
+}
+
+.customFile {
+  width: auto;
+  min-width: 0;
+  flex: 1;
+}
+
+.removeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: color-mix(in srgb, currentColor 75%, transparent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.removeButton:hover {
+  color: inherit;
+}
+
+.removeButton:active {
+  color: inherit;
+}
+
+.removeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.trashIcon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.trashLid {
+  transform-box: fill-box;
+  transform-origin: right center;
+  transition: transform 160ms ease;
+}
+
+.removeButton:hover .trashLid,
+.removeButton:focus-visible .trashLid {
+  transform: translate(0.5px, -1.5px) rotate(18deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trashLid {
+    transition: none;
+  }
+
+  .removeButton:hover .trashLid,
+  .removeButton:focus-visible .trashLid {
+    transform: none;
+  }
 }
 
 .large {

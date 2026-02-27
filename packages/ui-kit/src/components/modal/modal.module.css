@@ -85,6 +85,14 @@
   animation: panelOut 140ms ease-in;
 }
 
+:global(body.jcui-modal-mobile) .content {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 0;
+}
+
 .title {
   margin: 0;
 }

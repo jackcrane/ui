@@ -10,6 +10,7 @@ import toastStyles from "../Toast/toast.module.css";
 export const JCUIProvider = ({
   children,
   theme: initialTheme = DEFAULT_THEME,
+  modalMobileBreakpoint = 600,
   className,
   ...props
 }) => {
@@ -33,6 +34,34 @@ export const JCUIProvider = ({
       body.classList.remove(themeClass, globalClass);
     };
   }, [themeClass, globalClass]);
+
+  useEffect(() => {
+    if (typeof document === "undefined" || typeof window === "undefined") {
+      return undefined;
+    }
+
+    const body = document.body;
+    const parsedBreakpoint = Number(modalMobileBreakpoint);
+    const breakpoint =
+      Number.isFinite(parsedBreakpoint) && parsedBreakpoint > 0
+        ? parsedBreakpoint
+        : 600;
+
+    const updateModalMobileState = () => {
+      const isMobile = window.innerWidth <= breakpoint;
+      body.classList.toggle("jcui-modal-mobile", isMobile);
+      body.style.setProperty("--jcui-modal-mobile-breakpoint", `${breakpoint}px`);
+    };
+
+    updateModalMobileState();
+    window.addEventListener("resize", updateModalMobileState);
+
+    return () => {
+      window.removeEventListener("resize", updateModalMobileState);
+      body.classList.remove("jcui-modal-mobile");
+      body.style.removeProperty("--jcui-modal-mobile-breakpoint");
+    };
+  }, [modalMobileBreakpoint]);
 
   const contextValue = useMemo(() => ({ theme, setTheme }), [theme]);
 

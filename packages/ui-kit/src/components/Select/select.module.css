@@ -52,6 +52,7 @@
 .content {
   background-color: var(--body-bg);
   border: var(--border-thickness) solid var(--border-color);
+  z-index: 110;
 }
 
 .item {

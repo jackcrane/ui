@@ -34,14 +34,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Bump kit minor version
-        run: npm version minor --workspace=@jackcrane/ui --no-git-tag-version
+      - name: Bump kit patch version
+        run: npm version patch --workspace=@jackcrane/ui --no-git-tag-version
 
       - name: Build kit
         run: npm run build:kit
 
       - name: Publish kit
-        run: npm publish --workspace=@jackcrane/ui --access public --provenance
+        working-directory: packages/ui-kit
+        run: npm publish --access public --provenance
 
       - name: Commit and push version bump
         run: |
@@ -52,5 +53,5 @@ jobs:
             echo "No version changes to commit."
             exit 0
           fi
-          git commit -m "chore(release): bump @jackcrane/ui minor [skip ci]"
+          git commit -m "chore(release): bump @jackcrane/ui patch [skip ci]"
           git push

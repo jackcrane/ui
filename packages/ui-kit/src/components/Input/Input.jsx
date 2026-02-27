@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import styles from "./Input.module.css";
+import styles from "./input.module.css";
 import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
 import { useId } from "react";

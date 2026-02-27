@@ -1,4 +1,5 @@
-.hatch {
+.hatch,
+:global(.jcui_hatch) {
   --bc: var(--border-color);
   --bg: transparent;
   --stripe: var(--border-thickness);

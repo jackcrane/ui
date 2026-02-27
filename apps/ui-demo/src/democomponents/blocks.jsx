@@ -3,6 +3,7 @@ import { Inputs } from "./inputs";
 import { FileUploads } from "./file-uploads";
 import { Checkboxes } from "./checkboxes";
 import { Radios } from "./radios";
+import { SegmentedControls } from "./segmented-controls";
 import { Selects } from "./selects";
 import { Dropdowns } from "./dropdowns";
 import { Modals } from "./modals";
@@ -25,6 +26,8 @@ export const Blocks = () => {
       <Checkboxes />
       <hr />
       <Radios />
+      <hr />
+      <SegmentedControls />
       <hr />
       <Selects />
       <hr />

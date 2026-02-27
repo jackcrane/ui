@@ -1,4 +1,5 @@
-.chamfer {
+.chamfer,
+:global(.jcui_chamfer) {
   --bt: var(--border-thickness);
   --cd: var(--chamfer-distance);
   --chamfer-color: var(--border-accent-color);
@@ -12,21 +13,27 @@
     background-color 180ms ease;
 }
 
-.chamfer:not(.disabled):hover {
+.chamfer:not(.disabled):hover,
+:global(.jcui_chamfer:not(.jcui_disabled):hover) {
   --cd: calc(var(--chamfer-distance) * 1.5);
 }
 
 .chamfer:active,
-div.chamfer:focus-within {
+div.chamfer:focus-within,
+:global(.jcui_chamfer:active),
+:global(div.jcui_chamfer:focus-within) {
   --cd: calc(var(--chamfer-distance) * 1.75);
 }
 
 .chamfer:not(.disabled):active,
-div.chamfer:not(.disabled):focus-within {
+div.chamfer:not(.disabled):focus-within,
+:global(.jcui_chamfer:not(.jcui_disabled):active),
+:global(div.jcui_chamfer:not(.jcui_disabled):focus-within) {
   --cd: calc(var(--chamfer-distance) * 1.75);
 }
 
-.chamfer::before {
+.chamfer::before,
+:global(.jcui_chamfer::before) {
   content: "";
   position: absolute;
   inset: 0;

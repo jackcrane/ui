@@ -1,0 +1,205 @@
+@property --segment-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --segment-item-hover-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --segment-item-active-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --segment-item-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+}
+
+@property --segment-item-active-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+}
+
+.root {
+  --segment-bg: var(--body-bg);
+  --segment-item-hover-bg: var(--secondary-color-100);
+  --segment-item-active-bg: var(--secondary-color-300);
+  --segment-item-color: var(--body-color);
+  --segment-item-active-color: var(--body-color);
+  --button-bg: var(--segment-bg);
+
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  background-color: var(--segment-bg);
+  color: var(--segment-item-color);
+}
+
+.item {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.5rem 1rem;
+  color: var(--segment-item-color);
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border-top: var(--border-thickness) solid var(--border-color);
+  border-bottom: var(--border-thickness) solid var(--border-color);
+  border-left: var(--border-thickness) solid var(--border-color);
+  margin-right: calc(-1 * var(--border-thickness));
+}
+
+.item:last-child {
+  border-right: var(--border-thickness) solid var(--border-color);
+  margin-right: 0;
+}
+
+.item:hover {
+  background-color: var(--segment-item-hover-bg);
+}
+
+.item:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px var(--border-accent-color);
+}
+
+.item[data-state="on"] {
+  background-color: var(--segment-item-active-bg);
+  color: var(--segment-item-active-color);
+  z-index: 1;
+}
+
+.chamferEnabled .item[data-state="on"]::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--border-thickness));
+  right: 0;
+  bottom: calc(-1 * var(--border-thickness));
+  left: calc(-1 * var(--border-thickness));
+  pointer-events: none;
+  --bt: var(--border-thickness);
+  --cd: var(--chamfer-distance);
+  --chamfer-color: var(--border-accent-color);
+
+  background:
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left top /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left top /
+      var(--bt) var(--cd) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right top /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right top /
+      var(--bt) var(--cd) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right bottom /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) right bottom /
+      var(--bt) var(--cd) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left bottom /
+      var(--cd) var(--bt) no-repeat,
+    linear-gradient(var(--chamfer-color), var(--chamfer-color)) left bottom /
+      var(--bt) var(--cd) no-repeat;
+}
+
+.chamferEnabled .item[data-state="on"]:last-child::after {
+  right: calc(-1 * var(--border-thickness));
+}
+
+.item[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.large .item {
+  font-size: 1.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.small .item {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.itemDisabled {
+  cursor: not-allowed;
+}
+
+/* Variants */
+
+.primary {
+  --segment-bg: var(--primary-color-100);
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+  --segment-item-hover-bg: var(--primary-color-200);
+  --segment-item-active-bg: var(--primary-color-300);
+  --segment-item-color: var(--primary-color-800);
+  --segment-item-active-color: var(--primary-color-900);
+}
+
+.secondary {
+  --segment-bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+  --segment-item-hover-bg: var(--secondary-color-200);
+  --segment-item-active-bg: var(--secondary-color-300);
+  --segment-item-color: var(--secondary-color-800);
+  --segment-item-active-color: var(--secondary-color-900);
+}
+
+.success {
+  --segment-bg: var(--success-color-100);
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+  --segment-item-hover-bg: var(--success-color-200);
+  --segment-item-active-bg: var(--success-color-300);
+  --segment-item-color: var(--success-color-800);
+  --segment-item-active-color: var(--success-color-900);
+}
+
+.warning {
+  --segment-bg: var(--warning-color-100);
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+  --segment-item-hover-bg: var(--warning-color-200);
+  --segment-item-active-bg: var(--warning-color-300);
+  --segment-item-color: var(--warning-color-800);
+  --segment-item-active-color: var(--warning-color-900);
+}
+
+.danger {
+  --segment-bg: var(--danger-color-100);
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+  --segment-item-hover-bg: var(--danger-color-200);
+  --segment-item-active-bg: var(--danger-color-300);
+  --segment-item-color: var(--danger-color-800);
+  --segment-item-active-color: var(--danger-color-900);
+}
+
+.info {
+  --segment-bg: var(--info-color-100);
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+  --segment-item-hover-bg: var(--info-color-200);
+  --segment-item-active-bg: var(--info-color-300);
+  --segment-item-color: var(--info-color-800);
+  --segment-item-active-color: var(--info-color-900);
+}

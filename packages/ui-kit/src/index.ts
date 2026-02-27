@@ -7,6 +7,7 @@ export { default as FileUpload } from "./components/FileUpload/file-upload";
 export { Loader } from "./components/Loader/loader";
 export { Radio, RadioGroup } from "./components/Radio/radio";
 export { default as Select } from "./components/Select/select";
+export { default as SegmentedControl } from "./components/SegmentedControl/segmented-control";
 export { default as Dropdown } from "./components/Dropdown/dropdown";
 export { default as Hatch } from "./components/Hatch/hatch";
 export { toast } from "./components/Toast/toast";

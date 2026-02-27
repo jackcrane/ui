@@ -39,6 +39,7 @@
   display: inline-flex;
   align-items: stretch;
   justify-content: flex-start;
+  isolation: isolate;
   background-color: var(--segment-bg);
   color: var(--segment-item-color);
 }

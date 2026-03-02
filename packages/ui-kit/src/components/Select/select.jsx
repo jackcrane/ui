@@ -5,6 +5,7 @@ import chamferStyles from "../../general/chamfer.module.css";
 import hatchStyles from "../../general/hatch.module.css";
 import classNames from "classnames";
 import { Loader } from "../Loader/loader";
+import { useId } from "react";
 
 /**
  * Select component.
@@ -16,6 +17,8 @@ import { Loader } from "../Loader/loader";
  * @param {string} props.variant
  * @param {string} props.size
  * @param {boolean} props.disabled
+ * @param {string} props.label
+ * @param {string} props.id
  */
 export default function SelectInput({
   options,
@@ -26,55 +29,68 @@ export default function SelectInput({
   disabled,
   chamfer = true,
   loading = false,
+  label,
+  id,
 }) {
-  return (
-    <Select.Root
-      value={value}
-      onValueChange={onValueChange}
-      disabled={disabled || loading}
-    >
-      <Select.Trigger
-        className={clsx(
-          styles.trigger,
-          styles[variant],
-          chamfer && chamferStyles.chamfer,
-          size === "large" && styles.large,
-          size === "small" && styles.small,
-          disabled && styles.disabled,
-          disabled && hatchStyles.hatch
-          // loading && styles.disabled
-        )}
-      >
-        <Select.Value />
-        {loading ? (
-          <Loader />
-        ) : (
-          <Select.Icon className={styles.icon}>▾</Select.Icon>
-        )}
-      </Select.Trigger>
+  const generatedId = useId();
+  const triggerId = id ?? generatedId;
 
-      <Select.Portal>
-        <Select.Content
-          className={classNames(
-            styles.content,
-            chamfer && chamferStyles.chamfer
+  return (
+    <div className={styles.field}>
+      {label && (
+        <label className={styles.label} htmlFor={triggerId}>
+          {label}
+        </label>
+      )}
+      <Select.Root
+        value={value}
+        onValueChange={onValueChange}
+        disabled={disabled || loading}
+      >
+        <Select.Trigger
+          id={triggerId}
+          className={clsx(
+            styles.trigger,
+            styles[variant],
+            chamfer && chamferStyles.chamfer,
+            size === "large" && styles.large,
+            size === "small" && styles.small,
+            disabled && styles.disabled,
+            disabled && hatchStyles.hatch
+            // loading && styles.disabled
           )}
-          sideOffset={6}
         >
-          <Select.Viewport>
-            {options.map((opt) => (
-              <Select.Item
-                key={opt.value}
-                value={opt.value}
-                disabled={opt.disabled}
-                className={styles.item}
-              >
-                <Select.ItemText>{opt.label}</Select.ItemText>
-              </Select.Item>
-            ))}
-          </Select.Viewport>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
+          <Select.Value />
+          {loading ? (
+            <Loader />
+          ) : (
+            <Select.Icon className={styles.icon}>▾</Select.Icon>
+          )}
+        </Select.Trigger>
+
+        <Select.Portal>
+          <Select.Content
+            className={classNames(
+              styles.content,
+              chamfer && chamferStyles.chamfer
+            )}
+            sideOffset={6}
+          >
+            <Select.Viewport>
+              {options.map((opt) => (
+                <Select.Item
+                  key={opt.value}
+                  value={opt.value}
+                  disabled={opt.disabled}
+                  className={styles.item}
+                >
+                  <Select.ItemText>{opt.label}</Select.ItemText>
+                </Select.Item>
+              ))}
+            </Select.Viewport>
+          </Select.Content>
+        </Select.Portal>
+      </Select.Root>
+    </div>
   );
 }

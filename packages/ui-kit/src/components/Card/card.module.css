@@ -71,6 +71,7 @@
   transition:
     grid-template-rows 0.2s ease,
     opacity 0.2s ease;
+  flex: 1;
 }
 
 .card .contentInner {

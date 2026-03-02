@@ -136,3 +136,12 @@
 .secondary:hover {
   --select-bg: var(--secondary-color-200);
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+}

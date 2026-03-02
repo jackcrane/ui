@@ -202,6 +202,16 @@ export const Selects = () => {
           chamfer={false}
         />
       </div>
+
+      <h3>Label</h3>
+      <div style={{ display: "flex", flexDirection: "row", gap: 4 }}>
+        <Select
+          options={OPTIONS}
+          value={value}
+          onValueChange={onValueChange}
+          label="Label"
+        />
+      </div>
     </div>
   );
 };

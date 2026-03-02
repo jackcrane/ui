@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card } from "@jackcrane/ui";
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 export const Cards = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <div>
       <h2>Cards</h2>
@@ -95,6 +98,27 @@ export const Cards = () => {
         <Card footerHeight={40}>A card with a footer</Card>
         <Card footerHeight={40} variant={"primary"}>
           A card with a footer
+        </Card>
+      </div>
+
+      <h3>Collapsible</h3>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+          alignItems: "flex-start",
+        }}
+      >
+        <Card
+          title="Collapsible Card"
+          collapsed={collapsed}
+          onCollapseChange={setCollapsed}
+          footerHeight={40}
+          footer="Footer content"
+          style={{ width: 280 }}
+        >
+          Body content
         </Card>
       </div>
     </div>

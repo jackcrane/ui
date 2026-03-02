@@ -104,6 +104,12 @@
   padding-top: 1rem;
 }
 
+.body > hr {
+  margin: 1rem 0;
+  transform: translateX(-16px);
+  width: calc(100% + 32px);
+}
+
 .footer {
   margin: -12px;
   margin-top: 0px;

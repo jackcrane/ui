@@ -6,6 +6,9 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const demoSrc = path.resolve(__dirname, "src");
+const appNodeModules = path.resolve(__dirname, "node_modules");
+const reactRoot = path.resolve(appNodeModules, "react");
+const reactDomRoot = path.resolve(appNodeModules, "react-dom");
 const uiKitRoot = path.resolve(__dirname, "../../packages/ui-kit");
 const uiKitSrc = path.resolve(uiKitRoot, "src/index.ts");
 const workspaceRoot = searchForWorkspaceRoot(process.cwd());
@@ -17,9 +20,12 @@ export default defineConfig({
     exclude: ["@jackcrane/ui"],
   },
   resolve: {
+    dedupe: ["react", "react-dom"],
     alias: {
       "@demo": demoSrc,
       "@jackcrane/ui": uiKitSrc,
+      react: reactRoot,
+      "react-dom": reactDomRoot,
     },
   },
   server: {

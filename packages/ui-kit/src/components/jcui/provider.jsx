@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import dark from "./dark.module.css";
 import light from "./light.module.css";
 import global from "./global.module.css";
@@ -7,6 +7,34 @@ import { DEFAULT_THEME, ThemeContext } from "./theme-context";
 import { Toaster } from "react-hot-toast";
 import toastStyles from "../Toast/toast.module.css";
 
+const THEME_COOKIE_NAME = "jcui-theme";
+const VALID_THEMES = new Set(["light", "dark"]);
+
+const readThemeCookie = () => {
+  if (typeof document === "undefined") {
+    return null;
+  }
+
+  const cookie = document.cookie
+    .split("; ")
+    .find((entry) => entry.startsWith(`${THEME_COOKIE_NAME}=`));
+
+  if (!cookie) {
+    return null;
+  }
+
+  const value = decodeURIComponent(cookie.split("=")[1] ?? "");
+  return VALID_THEMES.has(value) ? value : null;
+};
+
+const writeThemeCookie = (theme) => {
+  if (typeof document === "undefined" || !VALID_THEMES.has(theme)) {
+    return;
+  }
+
+  document.cookie = `${THEME_COOKIE_NAME}=${encodeURIComponent(theme)}; path=/; max-age=31536000; SameSite=Lax`;
+};
+
 export const JCUIProvider = ({
   children,
   theme: initialTheme = DEFAULT_THEME,
@@ -14,13 +42,23 @@ export const JCUIProvider = ({
   className,
   ...props
 }) => {
-  const [theme, setTheme] = useState(initialTheme);
+  const [theme, setTheme] = useState(() => readThemeCookie() ?? initialTheme);
+  const previousInitialThemeRef = useRef(initialTheme);
   const themeClass = theme === "dark" ? dark.dark : light.light;
   const globalClass = global.global;
 
   useEffect(() => {
+    if (previousInitialThemeRef.current === initialTheme) {
+      return;
+    }
+
+    previousInitialThemeRef.current = initialTheme;
     setTheme(initialTheme);
   }, [initialTheme]);
+
+  useEffect(() => {
+    writeThemeCookie(theme);
+  }, [theme]);
 
   useEffect(() => {
     if (typeof document === "undefined") {

@@ -10,6 +10,7 @@ export { default as Select } from "./components/Select/select";
 export { default as SegmentedControl } from "./components/SegmentedControl/segmented-control";
 export { default as Dropdown } from "./components/Dropdown/dropdown";
 export { default as Hatch } from "./components/Hatch/hatch";
+export { default as Table } from "./components/Table/table";
 export { toast } from "./components/Toast/toast";
 export { useModal } from "./components/modal/useModal";
 export { JCUIProvider } from "./components/jcui/provider";

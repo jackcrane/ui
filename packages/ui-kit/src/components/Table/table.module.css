@@ -1,0 +1,183 @@
+.root {
+  --table-bg: transparent;
+  --table-header-bg: transparent;
+  --table-row-hover: color-mix(in srgb, var(--border-color) 8%, transparent);
+  --table-row-active: color-mix(in srgb, var(--border-color) 14%, transparent);
+  --table-header-hover: color-mix(in srgb, var(--body-bg) 50%, transparent);
+  --button-bg: transparent;
+
+  width: 100%;
+  background-color: var(--table-bg);
+  color: var(--body-color);
+}
+
+.pageBackground {
+  --table-bg: transparent;
+}
+
+.scroller {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.caption {
+  padding: 0.75rem 1rem 0;
+  color: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.headerRow {
+  border-bottom: var(--border-thickness) solid var(--border-color);
+}
+
+.headerCell,
+.cell {
+  text-align: left;
+  vertical-align: middle;
+}
+
+.headerCell {
+  padding: 0;
+  background-color: var(--table-header-bg);
+  color: inherit;
+}
+
+.headerContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sortButton {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font: inherit;
+}
+
+.sortButton:hover,
+.sortButton:focus-visible {
+  background-color: var(--table-header-hover);
+}
+
+.sortLabel {
+  font-size: 0.7em;
+  opacity: 0.7;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.row {
+  border-top: var(--border-thickness) solid var(--border-color);
+}
+
+.body .row:first-child,
+.emptyRow {
+  border-top: 0;
+}
+
+.rowInteractive {
+  cursor: pointer;
+}
+
+.rowInteractive:hover {
+  background-color: var(--table-row-hover);
+}
+
+.rowInteractive:active {
+  background-color: var(--table-row-active);
+}
+
+.cell {
+  padding: 0.7rem 1rem;
+  color: inherit;
+}
+
+.emptyCell {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.large .sortButton,
+.large .cell,
+.large .emptyCell,
+.large .caption {
+  font-size: 1.05rem;
+}
+
+.large .sortButton,
+.large .cell {
+  padding: 0.85rem 1.25rem;
+}
+
+.small .sortButton,
+.small .cell,
+.small .emptyCell,
+.small .caption {
+  font-size: 0.8125rem;
+}
+
+.small .sortButton,
+.small .cell {
+  padding: 0.5rem 0.75rem;
+}
+
+.primary {
+  --border-color: var(--primary-color-300);
+  --border-accent-color: var(--primary-color-600);
+  --table-row-hover: color-mix(in srgb, var(--primary-color-500) 10%, transparent);
+  --table-row-active: color-mix(in srgb, var(--primary-color-500) 16%, transparent);
+}
+
+.success {
+  --border-color: var(--success-color-300);
+  --border-accent-color: var(--success-color-600);
+  --table-row-hover: color-mix(in srgb, var(--success-color-500) 10%, transparent);
+  --table-row-active: color-mix(in srgb, var(--success-color-500) 16%, transparent);
+}
+
+.warning {
+  --border-color: var(--warning-color-300);
+  --border-accent-color: var(--warning-color-600);
+  --table-row-hover: color-mix(in srgb, var(--warning-color-500) 10%, transparent);
+  --table-row-active: color-mix(in srgb, var(--warning-color-500) 16%, transparent);
+}
+
+.danger {
+  --border-color: var(--danger-color-300);
+  --border-accent-color: var(--danger-color-600);
+  --table-row-hover: color-mix(in srgb, var(--danger-color-500) 10%, transparent);
+  --table-row-active: color-mix(in srgb, var(--danger-color-500) 16%, transparent);
+}
+
+.info {
+  --border-color: var(--info-color-300);
+  --border-accent-color: var(--info-color-600);
+  --table-row-hover: color-mix(in srgb, var(--info-color-500) 10%, transparent);
+  --table-row-active: color-mix(in srgb, var(--info-color-500) 16%, transparent);
+}
+
+.secondary {
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
+  --table-row-hover: color-mix(in srgb, var(--secondary-color-500) 10%, transparent);
+  --table-row-active: color-mix(in srgb, var(--secondary-color-500) 16%, transparent);
+}

@@ -11,6 +11,7 @@ import { Charts } from "./charts";
 import { Cards } from "./cards";
 import { Layouts } from "./layouts";
 import { Toasts } from "./toasts";
+import { Tables } from "./tables";
 
 export const Blocks = () => {
   return (
@@ -34,6 +35,8 @@ export const Blocks = () => {
     <Modals />
     <hr />
     <Charts />
+    <hr />
+    <Tables />
     <hr />
     <Dropdowns />
     <hr />

@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { Button, Input, useModal } from "@jackcrane/ui";
 
+const modalSizes = [
+  { label: "Open small", value: "sm" },
+  { label: "Open medium", value: "md" },
+  { label: "Open large", value: "lg" },
+  { label: "Open 720px", value: 720 },
+];
+
 export const Modals = () => {
   const [modalInputValue, setModalInputValue] = useState("");
+  const [modalSize, setModalSize] = useState("md");
 
   const { Modal, setOpen } = useModal({
     title: <>Delete item?</>,
+    size: modalSize,
     content: (
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <p style={{ margin: 0 }}>
@@ -27,11 +36,22 @@ export const Modals = () => {
     footer: <Button variant="primary">Continue</Button>,
   });
 
+  const openModalWithSize = (size) => {
+    setModalSize(size);
+    setOpen(true);
+  };
+
   return (
     <>
       <h2>Modals</h2>
       <Modal />
-      <Button onClick={() => setOpen(true)}>Programmatic open</Button>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+        {modalSizes.map(({ label, value }) => (
+          <Button key={label} onClick={() => openModalWithSize(value)}>
+            {label}
+          </Button>
+        ))}
+      </div>
     </>
   );
 };

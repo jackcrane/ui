@@ -7,13 +7,42 @@ import hatchStyles from "../../general/hatch.module.css";
 import Button from "../Button/button";
 import classNames from "classnames";
 
+const MODAL_WIDTHS = {
+  sm: 420,
+  md: 640,
+  lg: 840,
+};
+
+const DEFAULT_MODAL_SIZE = "md";
+
+const resolveModalWidth = (size) => {
+  if (typeof size === "number" && Number.isFinite(size) && size > 0) {
+    return size;
+  }
+
+  if (typeof size === "string") {
+    if (size in MODAL_WIDTHS) {
+      return MODAL_WIDTHS[size];
+    }
+
+    const parsed = Number(size);
+    if (Number.isFinite(parsed) && parsed > 0) {
+      return parsed;
+    }
+  }
+
+  return MODAL_WIDTHS[DEFAULT_MODAL_SIZE];
+};
+
 /**
  * @param {{
  *   title?: React.ReactNode
  *   content: React.ReactNode
+ *   footer?: React.ReactNode
+ *   size?: "sm" | "md" | "lg" | number
  * }} options
  */
-export const useModal = ({ title, content, footer }) => {
+export const useModal = ({ title, content, footer, size = DEFAULT_MODAL_SIZE }) => {
   const [open, setOpen] = React.useState(false);
   const modalConfigRef = React.useRef({
     open,
@@ -21,15 +50,16 @@ export const useModal = ({ title, content, footer }) => {
     title,
     content,
     footer,
+    size,
   });
 
-  // eslint-disable-next-line react-hooks/refs -- Keep latest config without recreating Modal component identity.
   modalConfigRef.current = {
     open,
     setOpen,
     title,
     content,
     footer,
+    size,
   };
 
   const Modal = React.useMemo(
@@ -41,7 +71,27 @@ export const useModal = ({ title, content, footer }) => {
           title: currentTitle,
           content: currentContent,
           footer: currentFooter,
+          size: currentSize,
         } = modalConfigRef.current;
+        const modalWidth = resolveModalWidth(currentSize);
+        const [isMobileLayout, setIsMobileLayout] = React.useState(false);
+
+        React.useEffect(() => {
+          if (typeof window === "undefined") {
+            return undefined;
+          }
+
+          const updateMobileLayout = () => {
+            setIsMobileLayout(window.innerWidth <= modalWidth + 20);
+          };
+
+          updateMobileLayout();
+          window.addEventListener("resize", updateMobileLayout);
+
+          return () => {
+            window.removeEventListener("resize", updateMobileLayout);
+          };
+        }, [modalWidth]);
 
         return (
           <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
@@ -51,7 +101,12 @@ export const useModal = ({ title, content, footer }) => {
               </Dialog.Overlay>
 
               <Dialog.Content
-                className={`${styles.content} ${chamferStyles.chamfer}`}
+                className={classNames(
+                  styles.content,
+                  chamferStyles.chamfer,
+                  isMobileLayout && styles.mobileContent,
+                )}
+                style={{ "--jcui-modal-width": `${modalWidth}px` }}
               >
                 {currentTitle && (
                   <div

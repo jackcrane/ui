@@ -79,7 +79,10 @@ export const JCUIProvider = ({
         {children}
         <Toaster
           position="bottom-right"
-          toastOptions={{ duration: 4200 }}
+          toastOptions={{
+            blank: { duration: 4200 },
+            custom: { duration: 4200 },
+          }}
           limit={4}
           gutter={10}
           containerClassName={toastStyles.toastViewport}

@@ -3,7 +3,6 @@ import { toast as hotToast } from "react-hot-toast";
 import chamferStyles from "../../general/chamfer.module.css";
 import styles from "./toast.module.css";
 
-const DEFAULT_DURATION = 420000;
 const VALID_VARIANTS = [
   "primary",
   "secondary",
@@ -21,7 +20,6 @@ const normalizeVariant = (variant) => {
 
 const buildOptions = (options = {}, variantOverride) => {
   const variant = normalizeVariant(variantOverride ?? options.variant);
-  const duration = options.duration ?? DEFAULT_DURATION;
   const className = classNames(
     styles.toastRoot,
     chamferStyles.chamfer,
@@ -31,7 +29,6 @@ const buildOptions = (options = {}, variantOverride) => {
 
   return {
     ...options,
-    duration,
     className,
     variant,
   };
@@ -50,7 +47,7 @@ toast.success = (content, options = {}) =>
 toast.warning = (content, options = {}) =>
   hotToast(content, buildOptions(options, "warning"));
 toast.danger = (content, options = {}) =>
-  hotToast(content, buildOptions(options, "danger"));
+  hotToast.error(content, buildOptions(options, "danger"));
 toast.info = (content, options = {}) =>
   hotToast(content, buildOptions(options, "info"));
 toast.loading = (content, options = {}) =>
@@ -60,6 +57,11 @@ toast.removeAll = () => {
   hotToast.dismiss();
 };
 toast.promise = (promise, messages, options = {}) =>
-  hotToast.promise(promise, messages, buildOptions(options));
+  hotToast.promise(promise, messages, {
+    ...options,
+    loading: buildOptions(options.loading ?? {}, "info"),
+    success: buildOptions(options.success ?? {}, "success"),
+    error: buildOptions(options.error ?? {}, "danger"),
+  });
 
 export { toast };

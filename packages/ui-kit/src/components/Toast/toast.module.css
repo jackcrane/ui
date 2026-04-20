@@ -2,7 +2,7 @@
   background-color: var(--button-bg) !important;
   border: var(--border-thickness) solid var(--border-color);
   border-radius: 0px !important;
-  color: var(--button-color);
+  color: var(--body-color) !important;
   padding: 0.5rem 1rem;
   box-shadow: none !important;
 }
@@ -11,40 +11,34 @@
   --button-bg: var(--primary-color-100);
   --border-color: var(--primary-color-300);
   --border-accent-color: var(--primary-color-600);
-  --button-color: var(--primary-color-800);
 }
 
 .success {
   --button-bg: var(--success-color-100);
   --border-color: var(--success-color-300);
   --border-accent-color: var(--success-color-600);
-  --button-color: var(--success-color-800);
 }
 
 .warning {
   --button-bg: var(--warning-color-100);
   --border-color: var(--warning-color-300);
   --border-accent-color: var(--warning-color-600);
-  --button-color: var(--warning-color-800);
 }
 
 .danger {
   --button-bg: var(--danger-color-100);
   --border-color: var(--danger-color-300);
   --border-accent-color: var(--danger-color-600);
-  --button-color: var(--danger-color-800);
 }
 
 .info {
   --button-bg: var(--info-color-100);
   --border-color: var(--info-color-300);
   --border-accent-color: var(--info-color-600);
-  --button-color: var(--info-color-800);
 }
 
 .secondary {
-  --button-bg: var(--body-bg);
-  --border-color: var(--border-color);
-  --border-accent-color: var(--border-accent-color);
-  --button-color: var(--body-color);
+  --button-bg: var(--secondary-color-100);
+  --border-color: var(--secondary-color-300);
+  --border-accent-color: var(--secondary-color-600);
 }
